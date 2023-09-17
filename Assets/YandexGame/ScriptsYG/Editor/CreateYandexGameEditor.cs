@@ -17,7 +17,7 @@ namespace YG.Insides
             {
                 PrefabUtility.InstantiatePrefab(prefab);
                 prefab.transform.position = new Vector3(0f, 0f, 0f);
-                Undo.RegisterCreatedObjectUndo(SceneAsset.FindObjectOfType<YandexGame>().gameObject, "Create YandexGame");
+                Undo.RegisterCreatedObjectUndo(SceneAsset.FindObjectOfType<YandexGame.ScriptsYG.YandexGame>().gameObject, "Create YandexGame");
             }
         }
     }

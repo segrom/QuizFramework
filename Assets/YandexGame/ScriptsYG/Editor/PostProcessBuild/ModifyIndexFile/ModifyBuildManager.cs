@@ -5,6 +5,8 @@ using UnityEditor;
 using UnityEngine;
 using YG.Insides;
 using System.Text;
+using YandexGame.ScriptsYG.InfoYG;
+using YandexGame.ScriptsYG.Inside;
 
 namespace YG.EditorScr.BuildModify
 {

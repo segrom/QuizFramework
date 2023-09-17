@@ -1,22 +1,23 @@
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityToolbag;
+using YandexGame.DebuggingMode.Scripts;
+using YandexGame.ScriptsYG.UnityToolbag_main.ConditionallyVisiblePropertyDrawer.Runtime;
 
-namespace YG
+namespace YandexGame.ScriptsYG.CustomRBT
 {
     [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#e53839c6ec8842ef98cedcc2344cbd85")]
     public class BannerYG : MonoBehaviour
     {
         public enum RTBNumber { One, Two };
-        [Tooltip("Всего доступно два баннера. Выберите номер данного баннера.")]
+        [Tooltip("Р’СЃРµРіРѕ РґРѕСЃС‚СѓРїРЅРѕ РґРІР° Р±Р°РЅРЅРµСЂР°. Р’С‹Р±РµСЂРёС‚Рµ РЅРѕРјРµСЂ РґР°РЅРЅРѕРіРѕ Р±Р°РЅРЅРµСЂР°.")]
         public RTBNumber RTB_Number;
         public enum Device { desktopAndMobile, onlyDesktop, onlyMobile };
-        [Tooltip(" Desktop And Mobile - Отображение баннера на всех устройствах.\n Only Desktop - Отображение баннера только на компьютере.\n Only Mobile - Отображение баннера только на мобильных устройствах (телефонах и планшетах).")]
+        [Tooltip(" Desktop And Mobile - РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р±Р°РЅРЅРµСЂР° РЅР° РІСЃРµС… СѓСЃС‚СЂРѕР№СЃС‚РІР°С….\n Only Desktop - РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р±Р°РЅРЅРµСЂР° С‚РѕР»СЊРєРѕ РЅР° РєРѕРјРїСЊСЋС‚РµСЂРµ.\n Only Mobile - РћС‚РѕР±СЂР°Р¶РµРЅРёРµ Р±Р°РЅРЅРµСЂР° С‚РѕР»СЊРєРѕ РЅР° РјРѕР±РёР»СЊРЅС‹С… СѓСЃС‚СЂРѕР№СЃС‚РІР°С… (С‚РµР»РµС„РѕРЅР°С… Рё РїР»Р°РЅС€РµС‚Р°С…).")]
         public Device device;
-        [Tooltip(" Минимальный размер блока. RBT-блок не будет меньше установленного значения.\n X - минимальная ширина.\n Y - минимальная высота.")]
+        [Tooltip(" РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ Р±Р»РѕРєР°. RBT-Р±Р»РѕРє РЅРµ Р±СѓРґРµС‚ РјРµРЅСЊС€Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ.\n X - РјРёРЅРёРјР°Р»СЊРЅР°СЏ С€РёСЂРёРЅР°.\n Y - РјРёРЅРёРјР°Р»СЊРЅР°СЏ РІС‹СЃРѕС‚Р°.")]
         public Vector2 minSize = new Vector2(20, 20);
-        [Tooltip("Выполнять код каждые 31сек.")]
+        [Tooltip("Р’С‹РїРѕР»РЅСЏС‚СЊ РєРѕРґ РєР°Р¶РґС‹Рµ 31СЃРµРє.")]
         public bool codeExecutionTimer31Sec;
 
         [HideInInspector]
@@ -25,7 +26,7 @@ namespace YG
 
 #if UNITY_EDITOR
         public enum ScaleMode { ConstantPixelSize, ScaleWithScreenSize };
-        [Tooltip("Режим масштабирования блоков.\nНастраивайте масштаб здесь, не изменяйте параметры компонентов Canvas'а!")]
+        [Tooltip("Р РµР¶РёРј РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ Р±Р»РѕРєРѕРІ.\nРќР°СЃС‚СЂР°РёРІР°Р№С‚Рµ РјР°СЃС€С‚Р°Р± Р·РґРµСЃСЊ, РЅРµ РёР·РјРµРЅСЏР№С‚Рµ РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјРїРѕРЅРµРЅС‚РѕРІ Canvas'Р°!")]
         public ScaleMode UIScaleMode;
 
         [ConditionallyVisible(nameof(UIScaleMode))]
@@ -103,7 +104,7 @@ namespace YG
         {
             if (CheckDevice())
             {
-                // Обновление RTB-блоков
+                // РћР±РЅРѕРІР»РµРЅРёРµ RTB-Р±Р»РѕРєРѕРІ
                 if (codeExecutionTimer31Sec && YandexGame.SDKEnabled && focus && NoAds())
                 {
                     if (RTB_Number == RTBNumber.One)

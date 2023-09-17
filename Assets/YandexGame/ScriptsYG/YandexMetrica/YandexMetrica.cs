@@ -1,10 +1,9 @@
-#if UNITY_EDITOR
-using UnityEngine;
-#endif
-using System.Collections.Generic;
-using YG.Insides;
 
-namespace YG
+using System.Collections.Generic;
+using UnityEngine;
+using YandexGame.ScriptsYG.Inside;
+
+namespace YandexGame.ScriptsYG.YandexMetrica
 {
     public static class YandexMetrica
     {
@@ -43,7 +42,7 @@ namespace YG
 #if UNITY_EDITOR
         private static void SendEditor(string eventName, string eventParams)
         {
-            InfoYG infoYG = ConfigYG.GetInfoYG();
+            InfoYG.InfoYG infoYG = ConfigYG.GetInfoYG();
 
             if (infoYG.metricaEnable && infoYG.debug)
             {

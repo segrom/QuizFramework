@@ -1,5 +1,5 @@
 ﻿
-namespace YG
+namespace YandexGame.WorkingData
 {
     [System.Serializable]
     public class SavesYG

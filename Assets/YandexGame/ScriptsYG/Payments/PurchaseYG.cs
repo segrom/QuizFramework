@@ -1,12 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using YG.Utils.Pay;
 #if YG_TEXT_MESH_PRO
 using TMPro;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG.Payments
 {
     [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#10e7dfffefdc42ec93b39be0c78e77cb")]
     public class PurchaseYG : MonoBehaviour
@@ -29,7 +28,7 @@ namespace YG
 
         public ImageLoadYG imageLoad;
 
-        [Tooltip("Добавить Ян/Yan к строке цены")]
+        [Tooltip("Р”РѕР±Р°РІРёС‚СЊ РЇРЅ/Yan Рє СЃС‚СЂРѕРєРµ С†РµРЅС‹")]
         public bool addYAN_toPrice = true;
 
         public Purchase data = new Purchase();
@@ -65,7 +64,7 @@ namespace YG
         private string Yan()
         {
             if (YandexGame.savesData.language == "ru")
-                return " Ян";
+                return " РЇРЅ";
             else
                 return " Yan";
         }

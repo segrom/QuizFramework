@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using YandexGame.ScriptsYG.Language_Translation;
 #if YG_TEXT_MESH_PRO
 using TMPro;
 #endif

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using YG.Utils.Lang;
+using YandexGame.ScriptsYG.Language_Translation;
 #if YG_TEXT_MESH_PRO
 using TMPro;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG
 {
     public class GetPlayerYG : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace YG
 #endif
         public ImageLoadYG imageLoadPlayerPhoto;
 
-        private InfoYG info { get => YandexGame.Instance.infoYG; }
+        private InfoYG.InfoYG info { get => YandexGame.Instance.infoYG; }
 
         private void OnEnable()
         {

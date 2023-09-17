@@ -17,6 +17,11 @@ MonoBehaviour:
     \u043D\u0430\u0441\u043A\u043E\u043B\u043A\u043E \u0442\u044B \u0440\u0430\u0437\u0431\u0435\u0440\u0430\u0435\u0448\u044C\u0441\u044F
     \u0432 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044F\u0445 \u0438
     \u0438\u0445 \u043C\u0430\u0440\u043A\u0430\u0445."
-  questions:
-  - {fileID: 11400000, guid: e864d44d48a92bf4ca6f8b2d562113f3, type: 2}
-  - {fileID: 11400000, guid: 66624de900e79714799e9f8076a6bcbb, type: 2}
+  groups:
+  - name: "\u041C\u0430\u0440\u043A\u0438"
+    questions:
+    - {fileID: 11400000, guid: e864d44d48a92bf4ca6f8b2d562113f3, type: 2}
+    - {fileID: 11400000, guid: 66624de900e79714799e9f8076a6bcbb, type: 2}
+  - name: "\u0422\u0435\u0445\u043D\u0438\u043A\u0430"
+    questions:
+    - {fileID: 11400000, guid: 9e457a42946c08142a5e01e56c3be41f, type: 2}

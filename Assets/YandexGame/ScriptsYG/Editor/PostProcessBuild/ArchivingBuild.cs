@@ -1,5 +1,7 @@
 using System.IO;
 using System.IO.Compression;
+using YandexGame.ScriptsYG.InfoYG;
+using YandexGame.ScriptsYG.Inside;
 using YG.Insides;
 
 namespace YG.EditorScr.BuildModify

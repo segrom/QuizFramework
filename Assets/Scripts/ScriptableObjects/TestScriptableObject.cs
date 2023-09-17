@@ -8,6 +8,7 @@ namespace ScriptableObjects
     {
         public string title;
         public string description;
-        public QuestionScriptableObject[] questions;
+        public QuestionGroup[] groups;
+        
     }
 }

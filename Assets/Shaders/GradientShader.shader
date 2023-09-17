@@ -3,8 +3,8 @@ Shader "Unlit/GradientShader"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        [PerRendererData] _FirstColor ("First Color", Color) = (1,1,1,1)
-        [PerRendererData] _SecondColor ("Second Color", Color) = (0,1,0,1)
+        _FirstColor ("First Color", Color) = (1,1,1,1)
+        _SecondColor ("Second Color", Color) = (0,1,0,1)
         
         _StencilComp("Stencil Comparison", Float) = 8
         _Stencil("Stencil ID", Float) = 0

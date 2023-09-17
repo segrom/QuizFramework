@@ -1,7 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using YG.Utils.Lang;
+using YandexGame.ScriptsYG.Inside;
 #if YG_NEWTONSOFT_FOR_AUTOLOCALIZATION
 using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
@@ -12,7 +12,7 @@ using System.Net;
 using TMPro;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG.Language_Translation
 {
     [HelpURL("https://ash-message-bf4.notion.site/PluginYG-d457b23eee604b7aa6076116aab647ed#00b98bcff9cf45428b137f5565a797a1")]
     public class LanguageYG : MonoBehaviour
@@ -22,7 +22,7 @@ namespace YG
         public TMP_FontAsset uniqueFontTMP;
 #endif
         public Text textLComponent;
-        public InfoYG infoYG;
+        public InfoYG.InfoYG infoYG;
         [Space(10)]
         public string text;
         public string ru, en, tr, az, be, he, hy, ka, et, fr, kk, ky, lt, lv, ro, tg, tk, uk, uz, es, pt, ar, id, ja, it, de, hi;
@@ -57,7 +57,7 @@ namespace YG
             infoYG = GetInfoYG();
         }
 
-        public InfoYG GetInfoYG() // For editor
+        public InfoYG.InfoYG GetInfoYG() // For editor
         {
             YandexGame yg = (YandexGame)GameObject.FindObjectOfType<YandexGame>();
 
@@ -68,7 +68,7 @@ namespace YG
             else
             {
 #if UNITY_EDITOR
-                InfoYG infoYGFromConfig = Insides.ConfigYG.GetInfoYG();
+                InfoYG.InfoYG infoYGFromConfig = ConfigYG.GetInfoYG();
                 return infoYGFromConfig;
 #else
                 return null;

@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using YandexGame.ScriptsYG.InfoYG;
 
 namespace YG.EditorScr.BuildModify
 {
