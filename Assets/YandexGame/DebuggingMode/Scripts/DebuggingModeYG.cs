@@ -1,16 +1,17 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using YandexGame.ScriptsYG.Leaderboard;
 
-namespace YG
+namespace YandexGame.DebuggingMode.Scripts
 {
     [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#4968547185c2460fb70fd6eceaf101d4")]
     public class DebuggingModeYG : MonoBehaviour
     {
-        [Tooltip("?payload=\nЭто значение, которое Вы будете передавать с помощью Deep Linking. Можете написать слово, например, debug и добавить свой пароль, например, 123. Получится debug123.")]
+        [Tooltip("?payload=\nР­С‚Рѕ Р·РЅР°С‡РµРЅРёРµ, РєРѕС‚РѕСЂРѕРµ Р’С‹ Р±СѓРґРµС‚Рµ РїРµСЂРµРґР°РІР°С‚СЊ СЃ РїРѕРјРѕС‰СЊСЋ Deep Linking. РњРѕР¶РµС‚Рµ РЅР°РїРёСЃР°С‚СЊ СЃР»РѕРІРѕ, РЅР°РїСЂРёРјРµСЂ, debug Рё РґРѕР±Р°РІРёС‚СЊ СЃРІРѕР№ РїР°СЂРѕР»СЊ, РЅР°РїСЂРёРјРµСЂ, 123. РџРѕР»СѓС‡РёС‚СЃСЏ debug123.")]
         public string payloadPassword = "debug123";
-        [Tooltip("Отображение панели управления в Unity Editor")]
+        [Tooltip("РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РїР°РЅРµР»Рё СѓРїСЂР°РІР»РµРЅРёСЏ РІ Unity Editor")]
         public bool debuggingInEditor;
 
         [Serializable]
@@ -38,12 +39,12 @@ namespace YG
                 if (!canvas) canvas = GetComponent<Canvas>();
                 canvas.enabled = false;
 
-                if (YandexGame.SDKEnabled) GetDataEvent();
+                if (ScriptsYG.YandexGame.SDKEnabled) GetDataEvent();
             }
         }
 
-        private void OnEnable() => YandexGame.GetDataEvent += GetDataEvent;
-        private void OnDisable() => YandexGame.GetDataEvent -= GetDataEvent;
+        private void OnEnable() => ScriptsYG.YandexGame.GetDataEvent += GetDataEvent;
+        private void OnDisable() => ScriptsYG.YandexGame.GetDataEvent -= GetDataEvent;
 
         public void GetDataEvent()
         {
@@ -60,62 +61,62 @@ namespace YG
 
                 if (!tr) tr = transform;
 
-                tr.Find("Panel").Find("LanguageDebug").GetChild(0).GetComponent<Text>().text = YandexGame.savesData.language;
+                tr.Find("Panel").Find("LanguageDebug").GetChild(0).GetComponent<Text>().text = ScriptsYG.YandexGame.savesData.language;
 
-                string playerId = YandexGame.playerId;
+                string playerId = ScriptsYG.YandexGame.playerId;
                 if (playerId.Length > 10)
                     playerId = playerId.Remove(10) + "...";
 
-                tr.Find("Panel").Find("DebugData").GetChild(0).GetComponent<Text>().text = "playerName - " + YandexGame.playerName +
+                tr.Find("Panel").Find("DebugData").GetChild(0).GetComponent<Text>().text = "playerName - " + ScriptsYG.YandexGame.playerName +
                     "\nplayerId - " + playerId +
-                    "\nauth - " + YandexGame.auth +
-                    "\nSDKEnabled - " + YandexGame.SDKEnabled +
-                    "\ninitializedLB - " + YandexGame.initializedLB +
-                    "\nphotoSize - " + YandexGame.photoSize +
-                    "\ndomain - " + YandexGame.EnvironmentData.domain +
-                    "\ndeviceType - " + YandexGame.EnvironmentData.deviceType +
-                    "\nisMobile - " + YandexGame.EnvironmentData.isMobile +
-                    "\nisDesktop - " + YandexGame.EnvironmentData.isDesktop +
-                    "\nisTablet - " + YandexGame.EnvironmentData.isTablet +
-                    "\nisTV - " + YandexGame.EnvironmentData.isTV +
-                    "\nisTablet - " + YandexGame.EnvironmentData.isTablet +
-                    "\nappID - " + YandexGame.EnvironmentData.appID +
-                    "\nbrowserLang - " + YandexGame.EnvironmentData.browserLang +
-                    "\npayload - " + YandexGame.EnvironmentData.payload +
-                    "\npromptCanShow - " + YandexGame.EnvironmentData.promptCanShow +
-                    "\nreviewCanShow - " + YandexGame.EnvironmentData.reviewCanShow;
+                    "\nauth - " + ScriptsYG.YandexGame.auth +
+                    "\nSDKEnabled - " + ScriptsYG.YandexGame.SDKEnabled +
+                    "\ninitializedLB - " + ScriptsYG.YandexGame.initializedLB +
+                    "\nphotoSize - " + ScriptsYG.YandexGame.photoSize +
+                    "\ndomain - " + ScriptsYG.YandexGame.EnvironmentData.domain +
+                    "\ndeviceType - " + ScriptsYG.YandexGame.EnvironmentData.deviceType +
+                    "\nisMobile - " + ScriptsYG.YandexGame.EnvironmentData.isMobile +
+                    "\nisDesktop - " + ScriptsYG.YandexGame.EnvironmentData.isDesktop +
+                    "\nisTablet - " + ScriptsYG.YandexGame.EnvironmentData.isTablet +
+                    "\nisTV - " + ScriptsYG.YandexGame.EnvironmentData.isTV +
+                    "\nisTablet - " + ScriptsYG.YandexGame.EnvironmentData.isTablet +
+                    "\nappID - " + ScriptsYG.YandexGame.EnvironmentData.appID +
+                    "\nbrowserLang - " + ScriptsYG.YandexGame.EnvironmentData.browserLang +
+                    "\npayload - " + ScriptsYG.YandexGame.EnvironmentData.payload +
+                    "\npromptCanShow - " + ScriptsYG.YandexGame.EnvironmentData.promptCanShow +
+                    "\nreviewCanShow - " + ScriptsYG.YandexGame.EnvironmentData.reviewCanShow;
             }
         }
 
         public void GetDataButton()
         {
-            YandexGame.GetDataEvent?.Invoke();
+            ScriptsYG.YandexGame.GetDataEvent?.Invoke();
         }
 
         public void AuthCheckButton()
         {
-            GameObject.FindObjectOfType<YandexGame>().InitializationSDK();
+            GameObject.FindObjectOfType<ScriptsYG.YandexGame>().InitializationSDK();
         }
 
         public void AuthDialogButton()
         {
-            GameObject.FindObjectOfType<YandexGame>()._OpenAuthDialog();
+            GameObject.FindObjectOfType<ScriptsYG.YandexGame>()._OpenAuthDialog();
         }
 
         public void FullAdButton()
         {
-            YandexGame.FullscreenShow();
+            ScriptsYG.YandexGame.FullscreenShow();
         }
 
         public void VideoAdButton()
         {
             if (!tr) tr = transform;
             int id = int.Parse(tr.Find("Panel").Find("RewardAd").GetChild(0).GetComponent<InputField>().text);
-            YandexGame.RewVideoShow(id);
+            ScriptsYG.YandexGame.RewVideoShow(id);
         }
 
-        public void StickyAdShowButton() => YandexGame.StickyAdActivity(true);
-        public void StickyAdHideButton() => YandexGame.StickyAdActivity(false);
+        public void StickyAdShowButton() => ScriptsYG.YandexGame.StickyAdActivity(true);
+        public void StickyAdHideButton() => ScriptsYG.YandexGame.StickyAdActivity(false);
 
 
         public static Action onRBTRecalculate;
@@ -138,56 +139,56 @@ namespace YG
 
         public void RedefineLangButton()
         {
-            GameObject.FindObjectOfType<YandexGame>()._LanguageRequest();
+            GameObject.FindObjectOfType<ScriptsYG.YandexGame>()._LanguageRequest();
         }
 
         public void SwitchLanguage(Text text)
         {
-            YandexGame.SwitchLanguage(text.text);
+            ScriptsYG.YandexGame.SwitchLanguage(text.text);
         }
 
         public void PromptDialogButton()
         {
-            YandexGame.PromptShow();
+            ScriptsYG.YandexGame.PromptShow();
         }
 
         public void ReviewButton()
         {
-            YandexGame.ReviewShow(false);
+            ScriptsYG.YandexGame.ReviewShow(false);
         }
 
         public void BuyPurchaseButton()
         {
             if (!tr) tr = transform;
             string id = tr.Find("Panel").Find("PurchaseID").GetChild(0).GetComponent<InputField>().text;
-            YandexGame.BuyPayments(id);
+            ScriptsYG.YandexGame.BuyPayments(id);
         }
 
         public void DeletePurchaseButton()
         {
             if (!tr) tr = transform;
             string id = tr.Find("Panel").Find("PurchaseID").GetChild(0).GetComponent<InputField>().text;
-            YandexGame.ConsumePurchaseByID(id);
+            ScriptsYG.YandexGame.ConsumePurchaseByID(id);
         }
 
         public void DeleteAllPurchasesButton()
         {
-            YandexGame.ConsumePurchases();
+            ScriptsYG.YandexGame.ConsumePurchases();
         }
 
         public void SaveButton()
         {
-            YandexGame.SaveProgress();
+            ScriptsYG.YandexGame.SaveProgress();
         }
 
         public void LoadButton()
         {
-            YandexGame.LoadProgress();
+            ScriptsYG.YandexGame.LoadProgress();
         }
 
         public void ResetSaveButton()
         {
-            YandexGame.ResetSaveProgress();
+            ScriptsYG.YandexGame.ResetSaveProgress();
         }
 
         public void SceneButton(int index)
@@ -203,13 +204,13 @@ namespace YG
 
         public void NewScoreLB()
         {
-            YandexGame.NewLeaderboardScores(leaderboard.leaderboardYG.nameLB,
+            ScriptsYG.YandexGame.NewLeaderboardScores(leaderboard.leaderboardYG.nameLB,
                 int.Parse(leaderboard.scoreLbInputField.text));
         }
 
         public void NewScoreLBTimeConvert()
         {
-            YandexGame.NewLBScoreTimeConvert(leaderboard.leaderboardYG.nameLB,
+            ScriptsYG.YandexGame.NewLBScoreTimeConvert(leaderboard.leaderboardYG.nameLB,
                 float.Parse(leaderboard.scoreLbInputField.text));
         }
     }

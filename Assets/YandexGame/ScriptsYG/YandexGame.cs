@@ -1,22 +1,24 @@
-using UnityEngine;
-using System.Runtime.InteropServices;
-using UnityEngine.Events;
 using System;
 using System.IO;
-using UnityEngine.UI;
+using System.Runtime.InteropServices;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using YG.Utils.LB;
-using YG.Utils.Pay;
+using UnityEngine.UI;
+using YandexGame.ScriptsYG.Inside;
+using YandexGame.ScriptsYG.Leaderboard;
+using YandexGame.ScriptsYG.Payments;
+using YandexGame.WorkingData;
 #if YG_NEWTONSOFT_FOR_SAVES
 using Newtonsoft.Json;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG
 {
     [HelpURL("https://ash-message-bf4.notion.site/PluginYG-d457b23eee604b7aa6076116aab647ed")]
     public class YandexGame : MonoBehaviour
     {
-        public InfoYG infoYG;
+        public InfoYG.InfoYG infoYG;
         [Tooltip("Объект YandexGame не будет удаляться при смене сцены. При выборе опции singleton, объект YandexGame необходимо поместить только на одну сцену, которая первая загружается при запуске игры.")]
         public bool singleton;
         [Space(10)]
@@ -154,11 +156,11 @@ namespace YG
                 _scopes = infoYG.scopes;
                 _startGame = true;
 
-                if (infoYG.playerPhotoSize == InfoYG.PlayerPhotoSize.small)
+                if (infoYG.playerPhotoSize == InfoYG.InfoYG.PlayerPhotoSize.small)
                     _photoSize = "small";
-                else if (infoYG.playerPhotoSize == InfoYG.PlayerPhotoSize.medium)
+                else if (infoYG.playerPhotoSize == InfoYG.InfoYG.PlayerPhotoSize.medium)
                     _photoSize = "medium";
-                else if (infoYG.playerPhotoSize == InfoYG.PlayerPhotoSize.large)
+                else if (infoYG.playerPhotoSize == InfoYG.InfoYG.PlayerPhotoSize.large)
                     _photoSize = "large";
 
                 InitializationSDK();
@@ -336,7 +338,7 @@ namespace YG
             GetDataEvent?.Invoke();
 
             if (Instance.infoYG.LocalizationEnable &&
-                Instance.infoYG.callingLanguageCheck == InfoYG.CallingLanguageCheck.EveryGameLaunch)
+                Instance.infoYG.callingLanguageCheck == InfoYG.InfoYG.CallingLanguageCheck.EveryGameLaunch)
             {
                 LanguageRequest();
             }
@@ -354,8 +356,8 @@ namespace YG
             _SDKEnabled = true;
 
             if (infoYG.LocalizationEnable &&
-                (infoYG.callingLanguageCheck == InfoYG.CallingLanguageCheck.FirstLaunchOnly ||
-                infoYG.callingLanguageCheck == InfoYG.CallingLanguageCheck.EveryGameLaunch))
+                (infoYG.callingLanguageCheck == InfoYG.InfoYG.CallingLanguageCheck.FirstLaunchOnly ||
+                infoYG.callingLanguageCheck == InfoYG.InfoYG.CallingLanguageCheck.EveryGameLaunch))
             {
                 LanguageRequest();
             }
@@ -547,7 +549,7 @@ namespace YG
             errMessage.AddComponent<GraphicRaycaster>();
             errMessage.AddComponent<RawImage>().color = new Color(0, 1, 0, 0.5f);
 
-            Insides.CallingAnEvent call = errMessage.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
+            CallingAnEvent call = errMessage.AddComponent(typeof(CallingAnEvent)) as CallingAnEvent;
             call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation));
         }
 #endif
@@ -587,7 +589,7 @@ namespace YG
             errMessage.AddComponent<RawImage>().color = new Color(0, 0, 1, 0.5f);
             DontDestroyOnLoad(errMessage);
 
-            Insides.CallingAnEvent call = errMessage.AddComponent(typeof(Insides.CallingAnEvent)) as Insides.CallingAnEvent;
+            CallingAnEvent call = errMessage.AddComponent(typeof(CallingAnEvent)) as CallingAnEvent;
             call.StartCoroutine(call.CallingAd(infoYG.durationOfAdSimulation, id));
         }
 #endif

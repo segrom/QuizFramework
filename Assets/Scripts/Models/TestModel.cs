@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using System.Linq;
+using ScriptableObjects;
 
 namespace Models
 {
@@ -8,23 +9,27 @@ namespace Models
         public string Description { get; }
         
         public int CurrentQuestionIndex { get; set; }
+        public readonly int QuestionGroupCount;
         public readonly int QuestionCount;
 
-        public TestQuestionModel[] Questions { get; private set; }
+        public QuestionGroupModel[] Groups { get; private set; }
+        public TestQuestionModel[] AllQuestions => Groups.SelectMany(g => g.Questions).ToArray();
 
         public TestModel(TestScriptableObject testScriptableObject)
         {
-            Title = testScriptableObject.title;
+            Title = testScriptableObject.title; 
             Description = testScriptableObject.description;
             CurrentQuestionIndex = 0;
-            QuestionCount = testScriptableObject.questions.Length;
+            
+            QuestionGroupCount = testScriptableObject.groups.Length;
+            Groups = new QuestionGroupModel[QuestionGroupCount];
 
-            Questions = new TestQuestionModel[QuestionCount];
-
-            for (int i = 0; i < QuestionCount; i++)
+            for (int i = 0; i < QuestionGroupCount; i++)
             {
-                Questions[i] = new TestQuestionModel(testScriptableObject.questions[i]);
+                Groups[i] = new QuestionGroupModel(testScriptableObject.groups[i]);
             }
+            
+            QuestionCount = Groups.Sum(g=>g.Size);
         }
     }
 }

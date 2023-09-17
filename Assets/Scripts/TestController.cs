@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Linq;
 using Cards;
+using Components;
+using Components.BottomBar;
 using DG.Tweening;
 using Models;
 using ScriptableObjects;
@@ -17,7 +19,7 @@ public class TestController : MonoBehaviour
     [Space]
     [SerializeField] private TMP_Text title;
     [SerializeField] private Transform cardOrigin;
-    [SerializeField] private ProgressBar progressBar;
+    [SerializeField] private BottomBar bottomBar;
 
     private BaseCard currentCard;
     private QuestionCard questionCardPrefab;
@@ -26,7 +28,11 @@ public class TestController : MonoBehaviour
     private IEnumerator Start()
     {
         currentTest = new TestModel(test);
+        
         title.text = currentTest.Title;
+        
+        yield return bottomBar.Setup(currentTest);
+        
         yield return AddressableManager.GetAssetCoroutine<GameObject>(AddressableManager.StartCardAsset, startCardPref =>
         {
             var startCard = Instantiate(startCardPref, cardOrigin).GetComponent<StartCard>();
@@ -42,12 +48,17 @@ public class TestController : MonoBehaviour
 
     private IEnumerator StartTest()
     {
+        var a = StartCoroutine(bottomBar.ChangeState(BottomBarStateType.Main));
+        
         yield return currentCard.Hide();
         AddressableManager.ReleaseAsset(AddressableManager.StartCardAsset);
+        
         var task =  AddressableManager.GetAsset<GameObject>(AddressableManager.QuestionCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
         questionCardPrefab = task.Result.GetComponent<QuestionCard>();
-        yield return GoQuestion(currentTest.Questions.First());
+        
+        yield return GoQuestion(currentTest.AllQuestions.First());
+        yield return a;
     }
 
     private IEnumerator NextQuestion()
@@ -56,16 +67,19 @@ public class TestController : MonoBehaviour
 
         if (currentTest.CurrentQuestionIndex >= currentTest.QuestionCount)
         {
+            yield return bottomBar.ChangeState(BottomBarStateType.Results);
             yield return GoResults();
             yield break;
         }
         
-        yield return GoQuestion(currentTest.Questions[currentTest.CurrentQuestionIndex]);
+        yield return GoQuestion(currentTest.AllQuestions[currentTest.CurrentQuestionIndex]);
     }
 
     private IEnumerator GoQuestion(TestQuestionModel question)
     {
         currentCard.OnNext -= OnNextCard;
+        
+        var a = StartCoroutine(bottomBar.QuestionChanged(question));
         yield return currentCard.Hide();
         Destroy(currentCard);
         
@@ -75,7 +89,10 @@ public class TestController : MonoBehaviour
         currentCard.OnNext += OnNextCard;
         
         yield return questionCard.Setup(question, currentTest);
+        
+        
         yield return questionCard.Show();
+        yield return a;
     }
 
     private void OnNextCard(BaseCard sender)

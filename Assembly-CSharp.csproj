@@ -45,12 +45,12 @@
     <Analyzer Include="F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ProgressBar.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ForVisualScriptYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Payments\ConsumePurchasesYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\YandexMetrica\JsonUtils.cs" />
      <Compile Include="Assets\Scripts\Cards\BaseCard.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Payments\PaymentsCatalogYG.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\States\MainBottomBarState.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ViewingAdsYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\YandexMetrica\YandexMetrica.cs" />
      <Compile Include="Assets\Scripts\Models\TestModel.cs" />
@@ -58,6 +58,7 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\LangYGAdditionalText.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Payments\PurchaseYG.cs" />
      <Compile Include="Assets\Scripts\Models\QuestionOptionModel.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\States\ProgressBarStatePanel.cs" />
      <Compile Include="Assets\YandexGame\WorkingData\SavesYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\UtilsLang.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ImageLoadYG.cs" />
@@ -69,14 +70,18 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\GetPlayerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\CustomRBT\BannerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\PromptYG.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\BottomBar.cs" />
      <Compile Include="Assets\Scripts\Components\GradientButton.cs" />
      <Compile Include="Assets\YandexGame\DebuggingMode\Scripts\DebuggingModeYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ReviewYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\InfoYG\InfoYG.cs" />
      <Compile Include="Assets\Scripts\Cards\StartCard.cs" />
      <Compile Include="Assets\Scripts\Components\QuestionOption.cs" />
+     <Compile Include="Assets\Scripts\Models\QuestionGroupModel.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\TestScriptableObject.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Leaderboard\UtilsLB.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\BottomBarGroup.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\States\StartBottomBarState.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ActivityOnAuthorizationYG.cs" />
      <Compile Include="Assets\Scripts\Models\TestQuestionModel.cs" />
      <Compile Include="Assets\Scripts\Tools\Gradient.cs" />
@@ -87,16 +92,18 @@
      <Compile Include="Assets\Scripts\Cards\QuestionCard.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Inside\CallingAnEvent.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\LanguageYG.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\States\ResultsBottomBarState.cs" />
+     <Compile Include="Assets\Scripts\ScriptableObjects\QuestionGroup.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\QuestionScriptableObject.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Prefabs\Cards" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\YandexGame\DebuggingMode" />
-     <Folder Include="Assets\Images\Questions" />
      <Folder Include="Assets\Settings" />
      <Folder Include="Assets\YandexGame\WorkingData" />
      <Folder Include="Assets\YandexGame" />
      <Folder Include="Assets\YandexGame\Prefabs\Payments" />
+     <Folder Include="Assets\Scripts\Components\BottomBar" />
      <Folder Include="Assets\YandexGame\Fonts" />
      <Folder Include="Assets\Scripts\Components" />
      <Folder Include="Assets\YandexGame\Prefabs\Leaderboards" />
@@ -129,6 +136,7 @@
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\AddressableAssetsData\DataBuilders" />
      <Folder Include="Assets\AddressableAssetsData\WebGL" />
+     <Folder Include="Assets\Scripts\Components\BottomBar\States" />
      <Folder Include="Assets\YandexGame\ScriptsYG\InfoYG" />
      <Folder Include="Assets\Questions" />
      <None Include="Assets\YandexGame\Fonts\LICENSE.txt" />

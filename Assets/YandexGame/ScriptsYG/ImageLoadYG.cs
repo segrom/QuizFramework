@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
-namespace YG
+namespace YandexGame.ScriptsYG
 {
     public class ImageLoadYG : MonoBehaviour
     {

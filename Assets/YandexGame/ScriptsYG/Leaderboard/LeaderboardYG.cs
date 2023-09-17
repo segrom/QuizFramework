@@ -1,12 +1,10 @@
-﻿using System;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine;
 using UnityEngine.UI;
-using UnityToolbag;
-using YG.Utils.LB;
-using YG.Utils.Lang;
+using YandexGame.ScriptsYG.Language_Translation;
+using YandexGame.ScriptsYG.UnityToolbag_main.ConditionallyVisiblePropertyDrawer.Runtime;
 
-namespace YG
+namespace YandexGame.ScriptsYG.Leaderboard
 {
     [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#7f075606f6c24091926fa3ad7ab59d10")]
     public class LeaderboardYG : MonoBehaviour

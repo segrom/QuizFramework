@@ -30,15 +30,11 @@ namespace Tools
         private void Awake()
         {
             image = GetComponent<Image>();
-            mat = new Material(image.material);
+            mat = new Material(Shader.Find("Unlit/GradientShader"));
             image.material = mat;
             FirstColor = firstColor;
             SecondColor = secondColor;
         }
-
-        private void OnDestroy()
-        {
-            Destroy(mat);
-        }
+        
     }
 }

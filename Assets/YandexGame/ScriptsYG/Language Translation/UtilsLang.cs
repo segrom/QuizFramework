@@ -3,11 +3,11 @@
 using TMPro;
 #endif
 
-namespace YG.Utils.Lang
+namespace YandexGame.ScriptsYG.Language_Translation
 {
     public class LangMethods : MonoBehaviour
     {
-        public static bool[] LangArr(InfoYG inf)
+        public static bool[] LangArr(InfoYG.InfoYG inf)
         {
             bool[] b = new bool[27];
 
@@ -74,7 +74,7 @@ namespace YG.Utils.Lang
             else return null;
         }
 
-        public static Font[] GetFont(int i, InfoYG inf)
+        public static Font[] GetFont(int i, InfoYG.InfoYG inf)
         {
             if (i == 0) return inf.fonts.ru;
             else if (i == 1) return inf.fonts.en;
@@ -140,7 +140,7 @@ namespace YG.Utils.Lang
         }
 #endif
 
-        public static int[] GetFontSize(int i, InfoYG inf)
+        public static int[] GetFontSize(int i, InfoYG.InfoYG inf)
         {
             if (i == 0) return inf.fontsSizeCorrect.ru;
             else if (i == 1) return inf.fontsSizeCorrect.en;
@@ -172,7 +172,7 @@ namespace YG.Utils.Lang
             else return null;
         }
 
-        public static string UnauthorizedTextTranslate(InfoYG inf)
+        public static string UnauthorizedTextTranslate(InfoYG.InfoYG inf)
         {
             string lang = YandexGame.EnvironmentData.language;
             if (inf.LocalizationEnable)
@@ -276,7 +276,7 @@ namespace YG.Utils.Lang
             return name;
         }
 
-        public static string IsHiddenTextTranslate(InfoYG inf)
+        public static string IsHiddenTextTranslate(InfoYG.InfoYG inf)
         {
             string lang = YandexGame.EnvironmentData.language;
             if (inf.LocalizationEnable)

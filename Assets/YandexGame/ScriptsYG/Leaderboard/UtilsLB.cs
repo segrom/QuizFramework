@@ -1,7 +1,7 @@
 using System;
-using YG.Utils.Lang;
+using YandexGame.ScriptsYG.Language_Translation;
 
-namespace YG.Utils.LB
+namespace YandexGame.ScriptsYG.Leaderboard
 {
     [Serializable]
     public class LBData
@@ -22,12 +22,12 @@ namespace YG.Utils.LB
             entries = "records of records";
             players = new LBPlayerData[6]
                 {
-                    new LBPlayerData { name = "anonymous", rank = 1, score = 10, uniqueID = "123", photo = InfoYG.photoExample},
-                    new LBPlayerData { name = "Ivan", rank = 2, score = 15, uniqueID = "321", photo = InfoYG.photoExample },
-                    new LBPlayerData { name = "Tanya", rank = 3, score = 23, uniqueID = "456", photo = InfoYG.photoExample },
-                    new LBPlayerData { name = "player4", rank = 4, score = 30, uniqueID = "321", photo = InfoYG.photoExample },
-                    new LBPlayerData { name = "playerThis", rank = 5, score = 40, uniqueID = "000", photo = InfoYG.photoExample },
-                    new LBPlayerData { name = "player6", rank = 6, score = 50, uniqueID = "321", photo = InfoYG.photoExample }
+                    new LBPlayerData { name = "anonymous", rank = 1, score = 10, uniqueID = "123", photo = InfoYG.InfoYG.photoExample},
+                    new LBPlayerData { name = "Ivan", rank = 2, score = 15, uniqueID = "321", photo = InfoYG.InfoYG.photoExample },
+                    new LBPlayerData { name = "Tanya", rank = 3, score = 23, uniqueID = "456", photo = InfoYG.InfoYG.photoExample },
+                    new LBPlayerData { name = "player4", rank = 4, score = 30, uniqueID = "321", photo = InfoYG.InfoYG.photoExample },
+                    new LBPlayerData { name = "playerThis", rank = 5, score = 40, uniqueID = "000", photo = InfoYG.InfoYG.photoExample },
+                    new LBPlayerData { name = "player6", rank = 6, score = 50, uniqueID = "321", photo = InfoYG.InfoYG.photoExample }
                 };
             type = "numeric";
         }
@@ -49,7 +49,7 @@ namespace YG.Utils.LB
             rank = 0;
             name = "Player";
             score = 15;
-            photo = InfoYG.photoExample;
+            photo = InfoYG.InfoYG.photoExample;
             uniqueID = "123";
         }
 #endif

@@ -38,5 +38,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _FirstColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SecondColor: {r: 0.23137255, g: 0.52156866, b: 0.95686275, a: 1}
+    - _SecondColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

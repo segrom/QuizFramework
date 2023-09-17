@@ -32,8 +32,8 @@ namespace Cards
         public IEnumerator Setup(TestModel test)
         {
             successPercent =
-                (int)(test.Questions.Count(q => q.IsRightSelected) /
-                      (float)test.Questions.Length * 100f);
+                (int)(test.AllQuestions.Count(q => q.IsRightSelected) /
+                      (float)test.AllQuestions.Length * 100f);
             Debug.Log($"Success percent is {successPercent}%");
             
             var s = DOTween.Sequence();

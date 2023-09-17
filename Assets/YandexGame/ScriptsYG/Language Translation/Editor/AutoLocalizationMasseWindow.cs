@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
+using YandexGame.ScriptsYG.InfoYG;
+using YandexGame.ScriptsYG.Language_Translation;
 #if YG_TEXT_MESH_PRO
 using TMPro;
 #endif
@@ -22,7 +24,7 @@ namespace YG.Insides
 
         private void OnGUI()
         {
-            if (GameObject.FindObjectOfType<YandexGame>().infoYG.translateMethod == InfoYG.TranslateMethod.AutoLocalization)
+            if (GameObject.FindObjectOfType<YandexGame.ScriptsYG.YandexGame>().infoYG.translateMethod == InfoYG.TranslateMethod.AutoLocalization)
             {
                 GUILayout.Space(10);
 

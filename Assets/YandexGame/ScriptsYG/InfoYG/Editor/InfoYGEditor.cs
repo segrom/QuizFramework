@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using YandexGame.ScriptsYG.InfoYG;
 using YG.Insides.Utils;
 using YG.EditorScr;
 

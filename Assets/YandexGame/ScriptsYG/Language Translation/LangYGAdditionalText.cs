@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG.Language_Translation
 {
     public class LangYGAdditionalText : MonoBehaviour
     {

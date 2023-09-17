@@ -1,13 +1,13 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using System;
 
-namespace YG
+namespace YandexGame.ScriptsYG
 {
     public class GraphicSettingsYG : MonoBehaviour
     {
-        [SerializeField] InfoYG infoYG;
+        [SerializeField] InfoYG.InfoYG infoYG;
         [SerializeField] Dropdown dropdown;
         [SerializeField] Text labelText;
         [SerializeField] Text itemText;

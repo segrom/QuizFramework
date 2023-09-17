@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using YandexGame.ScriptsYG.Language_Translation;
 
 namespace YG.Insides
 {

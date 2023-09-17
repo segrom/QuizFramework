@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityToolbag;
-using YG.Utils.LB;
-using YG.Utils.Pay;
+using YandexGame.ScriptsYG.Leaderboard;
+using YandexGame.ScriptsYG.Payments;
+using YandexGame.ScriptsYG.UnityToolbag_main.ConditionallyVisiblePropertyDrawer.Runtime;
 #if YG_TEXT_MESH_PRO
 using TMPro;
 #endif
 
-namespace YG
+namespace YandexGame.ScriptsYG.InfoYG
 {
     [CreateAssetMenu(fileName = "YandexGameData", menuName = "InfoYG"), HelpURL("https://ash-message-bf4.notion.site/PluginYG-d457b23eee604b7aa6076116aab647ed")]
     public partial class InfoYG : ScriptableObject

@@ -1,6 +1,6 @@
 using System;
 
-namespace YG.Utils.Pay
+namespace YandexGame.ScriptsYG.Payments
 {
     [Serializable]
     public class Purchase
