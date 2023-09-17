@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cc8c60a78bf64b741bc844f09586e980
+  m_SerializeEntries:
+  - m_GUID: 6ac08cb898d42934bbfdda62772fb42d
+    m_Address: MainScreen/Image.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d944676db73954bae7e4d0776db0da
+    m_Address: /Cards/StartCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 753f8d0a139b27a49b65d006184ec8d8
+    m_Address: /Cards/QuestionCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3243cd4d0388ff468d8381adebb1b4c
+    m_Address: /Images/Question1Image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fc1c2854f75f5448bb4a2a4300cbcbf
+    m_Address: /Components/QuestionOption
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df877e11affab494bbfc56e2b2edbc74
+    m_Address: /Images/Question2Image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71736281a7962da4a9da80e7ed40672e
+    m_Address: /Cards/ResultsCard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 358553459ccc72f499b720c8c663519e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e4c42afdaeac5d3438525c9b7708c99d, type: 2}
+    - {fileID: 11400000, guid: 573acc2d5130a1d4d81303ae4a192f20, type: 2}
