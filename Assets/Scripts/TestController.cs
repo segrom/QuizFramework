@@ -67,7 +67,6 @@ public class TestController : MonoBehaviour
 
         if (currentTest.CurrentQuestionIndex >= currentTest.QuestionCount)
         {
-            yield return bottomBar.ChangeState(BottomBarStateType.Results);
             yield return GoResults();
             yield break;
         }
@@ -90,14 +89,13 @@ public class TestController : MonoBehaviour
         
         yield return questionCard.Setup(question, currentTest);
         
-        
         yield return questionCard.Show();
         yield return a;
     }
 
     private void OnNextCard(BaseCard sender)
     {
-        if (sender is QuestionCard questionCard)
+        if (sender is QuestionCard)
         {
             title.text = sender.Title ?? currentTest.Title;
             StartCoroutine(NextQuestion());
@@ -114,11 +112,15 @@ public class TestController : MonoBehaviour
         var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultsCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
         
-        var questionCard = Instantiate(task.Result.GetComponent<ResultsCard>(), cardOrigin);
-        currentCard = questionCard;
+        var resultsCard = Instantiate(task.Result.GetComponent<ResultsCard>(), cardOrigin);
+        currentCard = resultsCard;
         title.text = currentCard.Title ?? currentTest.Title;
 
-        yield return questionCard.Setup(currentTest);
-        yield return questionCard.Show();
+        var a = StartCoroutine(bottomBar.SetupResults(currentTest));
+        yield return resultsCard.Setup(currentTest);
+        yield return resultsCard.Show();
+        
+        yield return a;
+        yield return bottomBar.ChangeState(BottomBarStateType.Results);
     }
 }

@@ -13,18 +13,18 @@ namespace Components.BottomBar
     }
     public class BottomBar : MonoBehaviour
     {
-        public BottomBarStateType StateType { get; private set; }
+        public BottomBarStateType StateType => currentState.StateType;
 
         [SerializeField] private StartBottomBarState startState;
         [SerializeField] private MainBottomBarState mainState;
         [SerializeField] private ResultsBottomBarState resultsState;
         private BaseBottomBarState[] states;
+        private BaseBottomBarState currentState;
         
         public IEnumerator Setup(TestModel test)
         {
             states = new BaseBottomBarState[] { startState, mainState, resultsState };
             
-            StateType = BottomBarStateType.Results; // shitty but
             yield return ChangeState(BottomBarStateType.Start);
             
             yield return states.Select(state => state.Setup(test)).GetEnumerator();
@@ -32,20 +32,20 @@ namespace Components.BottomBar
         
         public IEnumerator ChangeState(BottomBarStateType newStateType)
         {
-            if(newStateType == StateType) yield break;
-
-            foreach (BaseBottomBarState state in states)
-            {
-                state.gameObject.SetActive(state.StateType == newStateType);
-            }
+            if(currentState) yield return currentState.Hide();
+            currentState = states.First(s => s.StateType == newStateType);
+            yield return currentState.Show();
         }
-
         
         public IEnumerator QuestionChanged(TestQuestionModel newQuestion)
         {
            yield return mainState.ChangeCurrentQuestion(newQuestion);
         }
         
+        public IEnumerator SetupResults(TestModel test)
+        {
+            yield return resultsState.Setup(test);
+        }
         
     }
 }

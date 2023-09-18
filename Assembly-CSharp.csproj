@@ -70,18 +70,20 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\GetPlayerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\CustomRBT\BannerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\PromptYG.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\ResultState\BottomBarResultGroup.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\BottomBar.cs" />
      <Compile Include="Assets\Scripts\Components\GradientButton.cs" />
      <Compile Include="Assets\YandexGame\DebuggingMode\Scripts\DebuggingModeYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ReviewYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\InfoYG\InfoYG.cs" />
      <Compile Include="Assets\Scripts\Cards\StartCard.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\ResultState\ResultTooltip.cs" />
      <Compile Include="Assets\Scripts\Components\QuestionOption.cs" />
      <Compile Include="Assets\Scripts\Models\QuestionGroupModel.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\TestScriptableObject.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Leaderboard\UtilsLB.cs" />
-     <Compile Include="Assets\Scripts\Components\BottomBar\BottomBarGroup.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\States\StartBottomBarState.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\ResultState\ResultGroupItem.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ActivityOnAuthorizationYG.cs" />
      <Compile Include="Assets\Scripts\Models\TestQuestionModel.cs" />
      <Compile Include="Assets\Scripts\Tools\Gradient.cs" />
@@ -94,6 +96,7 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\LanguageYG.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\States\ResultsBottomBarState.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\QuestionGroup.cs" />
+     <Compile Include="Assets\Scripts\Components\BottomBar\MainState\BottomBarGroup.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\QuestionScriptableObject.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Prefabs\Cards" />
@@ -136,6 +139,7 @@
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\AddressableAssetsData\DataBuilders" />
      <Folder Include="Assets\AddressableAssetsData\WebGL" />
+     <Folder Include="Assets\Scripts\Components\BottomBar\MainState" />
      <Folder Include="Assets\Scripts\Components\BottomBar\States" />
      <Folder Include="Assets\YandexGame\ScriptsYG\InfoYG" />
      <Folder Include="Assets\Questions" />
@@ -150,6 +154,7 @@
      <Folder Include="Assets\YandexGame\Plugins" />
      <Folder Include="Assets\Scripts\ScriptableObjects" />
      <Folder Include="Assets\AddressableAssetsData" />
+     <Folder Include="Assets\Scripts\Components\BottomBar\ResultState" />
      <None Include="Assets\YandexGame\ScriptsYG\UnityToolbag-main\LICENSE.txt" />
      <Folder Include="Assets\AddressableAssetsData\AssetGroupTemplates" />
      <Reference Include="UnityEngine">

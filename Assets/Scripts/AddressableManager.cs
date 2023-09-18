@@ -14,6 +14,8 @@ public class AddressableManager
     public static readonly string ResultsCardAsset = "/Cards/ResultsCard";
     public static readonly string QuestionOptionAsset = "/Components/QuestionOption";
     public static readonly string BottomBarGroup = "/Components/BottomBarGroup";
+    public static readonly string ResultGroup = "/Components/ResultGroup";
+    public static readonly string ResultGroupItem = "/Components/ResultGroupItem";
     
     public static AddressableManager Instance => instance ??= new AddressableManager();
     private static AddressableManager instance;
@@ -60,7 +62,6 @@ public class AddressableManager
         catch (Exception e)
         {
             Debug.LogWarning(e.Message);
-            throw;
         }
         
     }

@@ -1,5 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using Components.BottomBar.ResultState;
 using Models;
+using UnityEngine;
 
 namespace Components.BottomBar.States
 {
@@ -7,9 +10,28 @@ namespace Components.BottomBar.States
     {
         public override BottomBarStateType StateType => BottomBarStateType.Results;
 
-        public override IEnumerator Setup(TestModel test)
+        private BottomBarResultGroup resultGroupPrefab;
+        private List<BottomBarResultGroup> groups;
+        private TestModel test;
+        
+        public override IEnumerator Setup(TestModel testModel)
         {
-            yield break;
+            test = testModel;
+            var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultGroup);
+            yield return new WaitUntil(() => task.IsCompleted);
+            resultGroupPrefab = task.Result.GetComponent<BottomBarResultGroup>();
+        }
+
+        public override IEnumerator Show()
+        {
+            groups = new List<BottomBarResultGroup>();
+            foreach (QuestionGroupModel questionGroupModel in test.Groups)
+            {
+                var group = Instantiate(resultGroupPrefab, transform);
+                yield return group.Setup(questionGroupModel);
+                groups.Add(group);
+            }
+            yield return base.Show();
         }
     }
 }

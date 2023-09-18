@@ -4,10 +4,9 @@ using DG.Tweening;
 using Models;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Components.BottomBar
+namespace Components.BottomBar.MainState
 {
     public class BottomBarGroup : MonoBehaviour
     {
@@ -31,6 +30,7 @@ namespace Components.BottomBar
         
         public bool IsActive { get; private set; }
 
+        private const float transitionDuration = 1f;
         private float lastPreferredWidth;
         private int lastProgressPercent;
         private RectTransform rectTransform;
@@ -38,7 +38,7 @@ namespace Components.BottomBar
         public IEnumerator Setup(QuestionGroupModel groupModel)
         {
             rectTransform = GetComponent<RectTransform>();
-            progressTransform.preferredWidth = rectTransform.rect.width + progressTransform.minWidth;
+            progressTransform.preferredWidth = lastPreferredWidth = progressTransform.minWidth;
             GroupModel = groupModel;
             titleActiveText.text = groupModel.Name;
             titleInactiveText.text = groupModel.Name;
@@ -80,20 +80,20 @@ namespace Components.BottomBar
                 onInactiveCanvasGroup.gameObject.SetActive(true);
             
                 var oldPreferredWidth = onInactiveLayoutElement.preferredWidth;
-                onInactiveLayoutElement.preferredWidth = 1000;
+                onInactiveLayoutElement.preferredWidth = 951;
                 onActiveLayoutElement.enabled = false;
                 onInactiveLayoutElement.enabled = true;
 
                 var s1 = DOTween.Sequence();
-                s1.Join(DOVirtual.Float(1000,
-                        oldPreferredWidth, 2f,
+                s1.Join(DOVirtual.Float(951,
+                        oldPreferredWidth, transitionDuration,
                         v => onInactiveLayoutElement.preferredWidth = v)
                     .SetEase(Ease.InOutCubic));
                 s1.Join(DOVirtual.Float(0,
-                    1, 2f,
+                    1, transitionDuration,
                     v => onInactiveCanvasGroup.alpha = v));
                 s1.Join(DOVirtual.Float(1,
-                    0, 2f,
+                    0, transitionDuration,
                     v => onActiveCanvasGroup.alpha = v));
                 yield return s1.WaitForCompletion();
                 
@@ -110,14 +110,14 @@ namespace Components.BottomBar
 
             var s = DOTween.Sequence();
             s.Join(DOVirtual.Float(preferredWidth,
-                    1000, 2f,
+                    951, transitionDuration,
                     v => onInactiveLayoutElement.preferredWidth = v)
                 .SetEase(Ease.InOutCubic));
             s.Join(DOVirtual.Float(1,
-                0, 2f,
+                0, transitionDuration,
                 v => onInactiveCanvasGroup.alpha = v));
             s.Join(DOVirtual.Float(0,
-                1, 2f,
+                1, transitionDuration,
                 v => onActiveCanvasGroup.alpha = v));
             yield return s.WaitForCompletion();
 
@@ -153,12 +153,12 @@ namespace Components.BottomBar
             var s = DOTween.Sequence();
             
             s.Join(DOVirtual.Int(lastProgressPercent, 
-                    progressPercent, 2f, 
+                    progressPercent, transitionDuration, 
                     value => progressText.text = $"{value}%")
                 .SetEase(Ease.InOutCubic));
             
             s.Join(DOVirtual.Float(lastPreferredWidth, 
-                    preferredWidth, 2f, 
+                    preferredWidth, transitionDuration, 
                     value => progressTransform.preferredWidth = value).
                 SetEase(Ease.InOutCubic));
             
