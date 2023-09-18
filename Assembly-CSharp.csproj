@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Cards\BaseCard.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Payments\PaymentsCatalogYG.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\States\MainBottomBarState.cs" />
+     <Compile Include="Assets\Scripts\Tools\TestResultCalculator.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ViewingAdsYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\YandexMetrica\YandexMetrica.cs" />
      <Compile Include="Assets\Scripts\Models\TestModel.cs" />
@@ -70,11 +71,13 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\GetPlayerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\CustomRBT\BannerYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\PromptYG.cs" />
+     <Compile Include="Assets\Scripts\Models\Results\ResultFieldLayerModel.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\ResultState\BottomBarResultGroup.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\BottomBar.cs" />
      <Compile Include="Assets\Scripts\Components\GradientButton.cs" />
      <Compile Include="Assets\YandexGame\DebuggingMode\Scripts\DebuggingModeYG.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\ReviewYG.cs" />
+     <Compile Include="Assets\Scripts\Models\Results\ResultFieldModel.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\InfoYG\InfoYG.cs" />
      <Compile Include="Assets\Scripts\Cards\StartCard.cs" />
      <Compile Include="Assets\Scripts\Components\BottomBar\ResultState\ResultTooltip.cs" />
@@ -157,6 +160,7 @@
      <Folder Include="Assets\Scripts\Components\BottomBar\ResultState" />
      <None Include="Assets\YandexGame\ScriptsYG\UnityToolbag-main\LICENSE.txt" />
      <Folder Include="Assets\AddressableAssetsData\AssetGroupTemplates" />
+     <Folder Include="Assets\Scripts\Models\Results" />
      <Reference Include="UnityEngine">
      <HintPath>F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

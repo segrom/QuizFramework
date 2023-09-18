@@ -52,6 +52,7 @@
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\Editor\CSVFileEditorWindow.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\UnityToolbag-main\ConditionallyVisiblePropertyDrawer\Editor\ConditionallyVisiblePropertyDrawer.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Editor\PostProcessBuild\ModifyIndexFile\SaveQuitGame.cs" />
+     <Compile Include="Assets\Scripts\Editor\TestEditor.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Editor\Utils\PackageDownloader.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Editor\PostProcessBuild\PostProcessBuild.cs" />
      <Compile Include="Assets\YandexGame\ScriptsYG\Language Translation\Editor\TranslationTableEditorWindow.cs" />
@@ -77,6 +78,7 @@
      <Folder Include="Assets\YandexGame\ScriptsYG\CustomRBT\Editor" />
      <Folder Include="Assets\YandexGame\ScriptsYG\Editor\Utils" />
      <None Include="Assets\YandexGame\ScriptsYG\Editor\PostProcessBuild\ModifyIndexFile\BuildLogYG.txt" />
+     <Folder Include="Assets\Scripts\Editor" />
      <Folder Include="Assets\YandexGame\ScriptsYG\Editor\Icons" />
      <Folder Include="Assets\YandexGame\ScriptsYG\Editor" />
      <Reference Include="UnityEngine">

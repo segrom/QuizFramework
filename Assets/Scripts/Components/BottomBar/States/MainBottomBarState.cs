@@ -31,12 +31,18 @@ namespace Components.BottomBar.States
             }
         }
 
+        public override IEnumerator Hide()
+        {
+            yield return currentGroup.ChangeActivity(false, groups.Count);
+            yield return base.Hide();
+        }
+
         public IEnumerator ChangeCurrentQuestion(TestQuestionModel newQuestion)
         {
             if (currentGroup is null)
             {
                 currentGroup = groups.First();
-                yield return currentGroup.ChangeActivity(true);
+                yield return currentGroup.ChangeActivity(true, groups.Count);
                 yield break;
             }
             
@@ -46,9 +52,9 @@ namespace Components.BottomBar.States
             }
             else
             {
-                yield return currentGroup.ChangeActivity(false);
+                yield return currentGroup.ChangeActivity(false, groups.Count);
                 currentGroup = groups.First(g => g.GroupModel == newQuestion.Group);
-                yield return currentGroup.ChangeActivity(true);
+                yield return currentGroup.ChangeActivity(true, groups.Count);
                 yield return currentGroup.ChangeQuestion(newQuestion);
             }
         }

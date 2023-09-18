@@ -54,7 +54,7 @@ namespace Components.BottomBar.MainState
             yield break;
         }
 
-        public IEnumerator ChangeActivity(bool value, bool fast = false)
+        public IEnumerator ChangeActivity(bool value, int groupsCount, bool fast = false)
         {
             IsActive = value;
 
@@ -71,7 +71,9 @@ namespace Components.BottomBar.MainState
                 
                 yield break;
             }
-            
+
+            var maxSize = transform.parent.GetComponentInParent<RectTransform>().rect.width -
+                          onInactiveLayoutElement.preferredWidth * (groupsCount - 1) - 16f;
             
             if (!value)
             {
@@ -80,12 +82,12 @@ namespace Components.BottomBar.MainState
                 onInactiveCanvasGroup.gameObject.SetActive(true);
             
                 var oldPreferredWidth = onInactiveLayoutElement.preferredWidth;
-                onInactiveLayoutElement.preferredWidth = 951;
+                onInactiveLayoutElement.preferredWidth = maxSize;
                 onActiveLayoutElement.enabled = false;
                 onInactiveLayoutElement.enabled = true;
 
                 var s1 = DOTween.Sequence();
-                s1.Join(DOVirtual.Float(951,
+                s1.Join(DOVirtual.Float(maxSize,
                         oldPreferredWidth, transitionDuration,
                         v => onInactiveLayoutElement.preferredWidth = v)
                     .SetEase(Ease.InOutCubic));
@@ -110,7 +112,7 @@ namespace Components.BottomBar.MainState
 
             var s = DOTween.Sequence();
             s.Join(DOVirtual.Float(preferredWidth,
-                    951, transitionDuration,
+                    maxSize, transitionDuration,
                     v => onInactiveLayoutElement.preferredWidth = v)
                 .SetEase(Ease.InOutCubic));
             s.Join(DOVirtual.Float(1,

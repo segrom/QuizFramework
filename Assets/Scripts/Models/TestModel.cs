@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Models.Results;
 using ScriptableObjects;
 
 namespace Models
@@ -13,6 +14,7 @@ namespace Models
         public readonly int QuestionCount;
 
         public QuestionGroupModel[] Groups { get; private set; }
+        public ResultFieldModel[] ResultFields { get; private set; }
         public TestQuestionModel[] AllQuestions => Groups.SelectMany(g => g.Questions).ToArray();
 
         public TestModel(TestScriptableObject testScriptableObject)
@@ -23,6 +25,8 @@ namespace Models
             
             QuestionGroupCount = testScriptableObject.groups.Length;
             Groups = new QuestionGroupModel[QuestionGroupCount];
+            
+            ResultFields = testScriptableObject.resultFields.ToArray();
 
             for (int i = 0; i < QuestionGroupCount; i++)
             {

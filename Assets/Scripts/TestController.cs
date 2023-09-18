@@ -27,11 +27,20 @@ public class TestController : MonoBehaviour
     
     private IEnumerator Start()
     {
-        currentTest = new TestModel(test);
+        var bottomBarGroup = bottomBar.gameObject.AddComponent<CanvasGroup>();
+        bottomBarGroup.alpha = 0;
+        title.transform.DOScale(0.8f,0);
+        title.DOFade(0, 0);
         
-        title.text = currentTest.Title;
+        currentTest = new TestModel(test);
+        title.text = currentTest.Title; 
         
         yield return bottomBar.Setup(currentTest);
+        var s = DOTween.Sequence();
+        s.Join( title.DOFade(1, 2f));
+        s.Join( title.transform.DOScale(1,2f).SetEase(Ease.OutCirc));
+        yield return s.WaitForCompletion();
+        yield return bottomBarGroup.DOFade(1,1f).WaitForCompletion();
         
         yield return AddressableManager.GetAssetCoroutine<GameObject>(AddressableManager.StartCardAsset, startCardPref =>
         {
@@ -121,6 +130,6 @@ public class TestController : MonoBehaviour
         yield return resultsCard.Show();
         
         yield return a;
-        yield return bottomBar.ChangeState(BottomBarStateType.Results);
     }
+    
 }

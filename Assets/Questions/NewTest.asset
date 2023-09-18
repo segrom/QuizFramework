@@ -22,6 +22,62 @@ MonoBehaviour:
     questions:
     - {fileID: 11400000, guid: e864d44d48a92bf4ca6f8b2d562113f3, type: 2}
     - {fileID: 11400000, guid: 66624de900e79714799e9f8076a6bcbb, type: 2}
-  - name: "\u0422\u0435\u0445\u043D\u0438\u043A\u0430"
+  - name: "\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
     questions:
     - {fileID: 11400000, guid: 9e457a42946c08142a5e01e56c3be41f, type: 2}
+  - name: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+    questions:
+    - {fileID: 11400000, guid: 9e457a42946c08142a5e01e56c3be41f, type: 2}
+    - {fileID: 11400000, guid: e864d44d48a92bf4ca6f8b2d562113f3, type: 2}
+    - {fileID: 11400000, guid: 66624de900e79714799e9f8076a6bcbb, type: 2}
+  resultFields:
+  - groupName: Main
+    layerModels:
+    - globalRightnessRangeMin: 0.66
+      globalRightnessRangeMax: 1
+      resultTitle: Expert
+      resultDescription: 
+    - globalRightnessRangeMin: 0.33
+      globalRightnessRangeMax: 0.66
+      resultTitle: Medium
+      resultDescription: 
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 0.33
+      resultTitle: Noob
+      resultDescription: 
+  - groupName: "\u041C\u0430\u0440\u043A\u0438"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u041C\u0430\u0440\u043A\u0438"
+      resultDescription: 
+  - groupName: "\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
+      resultDescription: 
+  - groupName: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+      resultDescription: 
+  - groupName: "\u041C\u0430\u0440\u043A\u0438\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u041C\u0430\u0440\u043A\u0438\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+      resultDescription: 
+  - groupName: "\u041C\u0430\u0440\u043A\u0438\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u041C\u0430\u0440\u043A\u0438\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
+      resultDescription: 
+  - groupName: "\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+    layerModels:
+    - globalRightnessRangeMin: 0
+      globalRightnessRangeMax: 1
+      resultTitle: "\u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+      resultDescription: 

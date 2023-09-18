@@ -3,6 +3,7 @@ using System.Linq;
 using DG.Tweening;
 using Models;
 using TMPro;
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ namespace Cards
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private Image image;
         
-        private int successPercent;
+        private int rightnessPercent;
         
         protected override void Awake()
         {
@@ -31,10 +32,12 @@ namespace Cards
 
         public IEnumerator Setup(TestModel test)
         {
-            successPercent =
-                (int)(test.AllQuestions.Count(q => q.IsRightSelected) /
-                      (float)test.AllQuestions.Length * 100f);
-            Debug.Log($"Success percent is {successPercent}%");
+            var (rightness, title, desc)= TestResultCalculator.CalculateResults(test);
+            rightnessPercent = (int)(rightness * 100f);
+            Debug.Log($"Success percent is {rightnessPercent}%");
+
+            testResultText.text = title;
+            descriptionText.text = desc;
             
             var s = DOTween.Sequence();
             s.Append(image.transform.DOLocalMoveY(50, 30));
@@ -49,7 +52,7 @@ namespace Cards
             yield return base.Show();
             
             var s = DOTween.Sequence();
-            s.Join(DOVirtual.Int(0, successPercent, 5, value => successPercentText.text = $"{value}%").SetEase(Ease.OutExpo));
+            s.Join(DOVirtual.Int(0, rightnessPercent, 5, value => successPercentText.text = $"{value}%").SetEase(Ease.OutExpo));
             s.Join(successPercentText.DOFade(1, 5));
             yield return s.WaitForCompletion();
 

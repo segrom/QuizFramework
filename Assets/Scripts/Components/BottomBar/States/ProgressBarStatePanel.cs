@@ -17,8 +17,9 @@ namespace Components.BottomBar.States
 
         public virtual IEnumerator Show()
         {
-            gameObject.SetActive(true);
             CanvasGroup.alpha = 0;
+            gameObject.SetActive(true);
+            yield return new WaitForEndOfFrame();
             yield return CanvasGroup.DOFade(1, 1f).WaitForCompletion();
             CanvasGroup.interactable = true;
         }

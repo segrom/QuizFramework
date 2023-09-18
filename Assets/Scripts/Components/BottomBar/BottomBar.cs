@@ -45,6 +45,7 @@ namespace Components.BottomBar
         public IEnumerator SetupResults(TestModel test)
         {
             yield return resultsState.Setup(test);
+            yield return ChangeState(BottomBarStateType.Results);
         }
         
     }
