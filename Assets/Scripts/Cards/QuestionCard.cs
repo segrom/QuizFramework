@@ -54,6 +54,8 @@ namespace Cards
                 _options.Add(option);
             }
             
+            LayoutRebuilder.MarkLayoutForRebuild(optionsContainer.GetComponent<RectTransform>());
+            
             var questionImageTask = AddressableManager.GetAsset<Texture2D>(_question.ImagePath);
             yield return new WaitUntil(() => questionImageTask.IsCompleted);
             var imageTexture = questionImageTask.Result;

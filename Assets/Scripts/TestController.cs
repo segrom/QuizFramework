@@ -13,6 +13,11 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Serialization;
 
+public enum TestStage
+{
+    Start, Main, Results,
+}
+
 public class TestController : MonoBehaviour
 {
     [SerializeField] private TestScriptableObject test;
@@ -20,13 +25,16 @@ public class TestController : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private Transform cardOrigin;
     [SerializeField] private BottomBar bottomBar;
-
+    
     private BaseCard _currentCard;
     private QuestionCard _questionCardPrefab;
     private TestModel _currentTest;
+    private TestStage _stage;
+    private bool _adWasShown;
     
     private IEnumerator Start()
     {
+        _stage = TestStage.Start;
         var bottomBarGroup = bottomBar.gameObject.AddComponent<CanvasGroup>();
         bottomBarGroup.alpha = 0;
         title.transform.DOScale(0.8f,0);
@@ -65,6 +73,7 @@ public class TestController : MonoBehaviour
         var task =  AddressableManager.GetAsset<GameObject>(AddressableManager.QuestionCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
         _questionCardPrefab = task.Result.GetComponent<QuestionCard>();
+        _stage = TestStage.Main;
         
         yield return GoQuestion(_currentTest.AllQuestions.First());
         yield return a;
@@ -113,13 +122,22 @@ public class TestController : MonoBehaviour
 
     private IEnumerator GoResults()
     {
-        _currentCard.OnNext -= OnNextCard;
+        _stage = TestStage.Results;
+        
         yield return _currentCard.Hide();
         Destroy(_currentCard);
 
+        _adWasShown = false;
+        YandexGame.ScriptsYG.YandexGame.FullscreenShow();
+        
+        _currentCard.OnNext -= OnNextCard;
         AddressableManager.ReleaseAsset(AddressableManager.QuestionCardAsset);
+        
         var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultsCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
+
+        yield return new WaitWhile(() => _adWasShown);
+        _adWasShown = false;
         
         var resultsCard = Instantiate(task.Result.GetComponent<ResultsCard>(), cardOrigin);
         _currentCard = resultsCard;
@@ -130,6 +148,12 @@ public class TestController : MonoBehaviour
         yield return resultsCard.Show();
         
         yield return a;
+    }
+
+    public void OnFullscreenClosed()
+    {
+        _adWasShown = true;
+        Debug.Log("Ads was shown");
     }
     
 }
