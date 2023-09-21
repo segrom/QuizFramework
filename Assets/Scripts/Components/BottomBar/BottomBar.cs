@@ -13,28 +13,28 @@ namespace Components.BottomBar
     }
     public class BottomBar : MonoBehaviour
     {
-        public BottomBarStateType StateType => currentState.StateType;
+        public BottomBarStateType StateType => _currentState.StateType;
 
         [SerializeField] private StartBottomBarState startState;
         [SerializeField] private MainBottomBarState mainState;
         [SerializeField] private ResultsBottomBarState resultsState;
-        private BaseBottomBarState[] states;
-        private BaseBottomBarState currentState;
+        private BaseBottomBarState[] _states;
+        private BaseBottomBarState _currentState;
         
         public IEnumerator Setup(TestModel test)
         {
-            states = new BaseBottomBarState[] { startState, mainState, resultsState };
+            _states = new BaseBottomBarState[] { startState, mainState, resultsState };
             
             yield return ChangeState(BottomBarStateType.Start);
             
-            yield return states.Select(state => state.Setup(test)).GetEnumerator();
+            yield return _states.Select(state => state.Setup(test)).GetEnumerator();
         }
         
         public IEnumerator ChangeState(BottomBarStateType newStateType)
         {
-            if(currentState) yield return currentState.Hide();
-            currentState = states.First(s => s.StateType == newStateType);
-            yield return currentState.Show();
+            if(_currentState) yield return _currentState.Hide();
+            _currentState = _states.First(s => s.StateType == newStateType);
+            yield return _currentState.Show();
         }
         
         public IEnumerator QuestionChanged(TestQuestionModel newQuestion)

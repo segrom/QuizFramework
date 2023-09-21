@@ -17,11 +17,11 @@ public class AddressableManager
     public static readonly string ResultGroup = "/Components/ResultGroup";
     public static readonly string ResultGroupItem = "/Components/ResultGroupItem";
     
-    public static AddressableManager Instance => instance ??= new AddressableManager();
-    private static AddressableManager instance;
+    public static AddressableManager Instance => _instance ??= new AddressableManager();
+    private static AddressableManager _instance;
 
-    private readonly Dictionary<string, UnityEngine.Object> instanceHandles = new();
-    private static Dictionary<string, UnityEngine.Object> Handles => Instance.instanceHandles;
+    private readonly Dictionary<string, UnityEngine.Object> _instanceHandles = new();
+    private static Dictionary<string, UnityEngine.Object> Handles => Instance._instanceHandles;
     
     public static async Task<T> GetAsset<T>(string path)
     where T: UnityEngine.Object 

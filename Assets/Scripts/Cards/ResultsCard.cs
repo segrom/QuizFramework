@@ -18,7 +18,7 @@ namespace Cards
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private Image image;
         
-        private int rightnessPercent;
+        private int _rightnessPercent;
         
         protected override void Awake()
         {
@@ -33,8 +33,8 @@ namespace Cards
         public IEnumerator Setup(TestModel test)
         {
             var (rightness, title, desc)= TestResultCalculator.CalculateResults(test);
-            rightnessPercent = (int)(rightness * 100f);
-            Debug.Log($"Success percent is {rightnessPercent}%");
+            _rightnessPercent = (int)(rightness * 100f);
+            Debug.Log($"Success percent is {_rightnessPercent}%");
 
             testResultText.text = title;
             descriptionText.text = desc;
@@ -52,7 +52,7 @@ namespace Cards
             yield return base.Show();
             
             var s = DOTween.Sequence();
-            s.Join(DOVirtual.Int(0, rightnessPercent, 5, value => successPercentText.text = $"{value}%").SetEase(Ease.OutExpo));
+            s.Join(DOVirtual.Int(0, _rightnessPercent, 5, value => successPercentText.text = $"{value}%").SetEase(Ease.OutExpo));
             s.Join(successPercentText.DOFade(1, 5));
             yield return s.WaitForCompletion();
 

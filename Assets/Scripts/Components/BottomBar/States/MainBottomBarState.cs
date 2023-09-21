@@ -12,50 +12,50 @@ namespace Components.BottomBar.States
         
         public override BottomBarStateType StateType => BottomBarStateType.Main;
 
-        private BottomBarGroup groupPrefab;
-        private List<BottomBarGroup> groups;
-        private BottomBarGroup currentGroup;
+        private BottomBarGroup _groupPrefab;
+        private List<BottomBarGroup> _groups;
+        private BottomBarGroup _currentGroup;
         
         public override IEnumerator Setup(TestModel test)
         {
             var task = AddressableManager.GetAsset<GameObject>(AddressableManager.BottomBarGroup);
             yield return new WaitUntil(() => task.IsCompleted);
-            groupPrefab = task.Result.GetComponent<BottomBarGroup>();
+            _groupPrefab = task.Result.GetComponent<BottomBarGroup>();
 
-            groups = new List<BottomBarGroup>();
+            _groups = new List<BottomBarGroup>();
             foreach (QuestionGroupModel groupModel in test.Groups)
             {
-                var group = Instantiate(groupPrefab, transform);
+                var group = Instantiate(_groupPrefab, transform);
                 yield return group.Setup(groupModel);
-                groups.Add(group);
+                _groups.Add(group);
             }
         }
 
         public override IEnumerator Hide()
         {
-            yield return currentGroup.ChangeActivity(false, groups.Count);
+            yield return _currentGroup.ChangeActivity(false, _groups.Count);
             yield return base.Hide();
         }
 
         public IEnumerator ChangeCurrentQuestion(TestQuestionModel newQuestion)
         {
-            if (currentGroup is null)
+            if (_currentGroup is null)
             {
-                currentGroup = groups.First();
-                yield return currentGroup.ChangeActivity(true, groups.Count);
+                _currentGroup = _groups.First();
+                yield return _currentGroup.ChangeActivity(true, _groups.Count);
                 yield break;
             }
             
-            if (newQuestion.Group == currentGroup.GroupModel)
+            if (newQuestion.Group == _currentGroup.GroupModel)
             {
-                yield return currentGroup.ChangeQuestion(newQuestion);
+                yield return _currentGroup.ChangeQuestion(newQuestion);
             }
             else
             {
-                yield return currentGroup.ChangeActivity(false, groups.Count);
-                currentGroup = groups.First(g => g.GroupModel == newQuestion.Group);
-                yield return currentGroup.ChangeActivity(true, groups.Count);
-                yield return currentGroup.ChangeQuestion(newQuestion);
+                yield return _currentGroup.ChangeActivity(false, _groups.Count);
+                _currentGroup = _groups.First(g => g.GroupModel == newQuestion.Group);
+                yield return _currentGroup.ChangeActivity(true, _groups.Count);
+                yield return _currentGroup.ChangeQuestion(newQuestion);
             }
         }
     }

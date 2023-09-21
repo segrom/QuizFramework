@@ -8,10 +8,10 @@ namespace Components.BottomBar.ResultState
 {
     public class ResultTooltip : MonoBehaviour
     {
-        private static ResultTooltip instance;
+        private static ResultTooltip _instance;
         
-        public static Color RightAnswerColor => instance.rightAnswerColor;
-        public static Color WrongAnswerColor => instance.wrongAnswerColor;
+        public static Color RightAnswerColor => _instance.rightAnswerColor;
+        public static Color WrongAnswerColor => _instance.wrongAnswerColor;
         
         [SerializeField] private RawImage image;
         [SerializeField] private TMP_Text questionText;
@@ -23,28 +23,28 @@ namespace Components.BottomBar.ResultState
 
         private void Awake()
         {
-            instance = this;
+            _instance = this;
             gameObject.SetActive(false);
         }
 
         public static void SetData(Vector3 pos,TestQuestionModel modelQuestion)
         {
-           instance.transform.position = pos;
-           instance.questionText.text = modelQuestion.Question;
-           instance.rightAnswer.text = modelQuestion.RightOption.name;
-           instance.userAnswer.text = modelQuestion.SelectedOption.name;
-           instance.userAnswer.color = modelQuestion.IsRightSelected ? RightAnswerColor : WrongAnswerColor;
-           instance.gameObject.SetActive(true);
+           _instance.transform.position = pos;
+           _instance.questionText.text = modelQuestion.Question;
+           _instance.rightAnswer.text = modelQuestion.RightOption.name;
+           _instance.userAnswer.text = modelQuestion.SelectedOption.name;
+           _instance.userAnswer.color = modelQuestion.IsRightSelected ? RightAnswerColor : WrongAnswerColor;
+           _instance.gameObject.SetActive(true);
             
-           instance.StartCoroutine(AddressableManager.GetAssetCoroutine<Texture2D>(modelQuestion.ImagePath, texture2D =>
+           _instance.StartCoroutine(AddressableManager.GetAssetCoroutine<Texture2D>(modelQuestion.ImagePath, texture2D =>
             {
-                instance.image.texture = texture2D;
+                _instance.image.texture = texture2D;
             }));
         }
 
         public static void Hide()
         {
-            instance.gameObject.SetActive(false);
+            _instance.gameObject.SetActive(false);
         }
     }
 }

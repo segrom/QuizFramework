@@ -17,33 +17,33 @@ namespace Components
         
         public event Action<QuestionOption> OnSelectionChange;
 
-        public QuestionOptionModel Model => model;
-        private QuestionOptionModel model;
+        public QuestionOptionModel Model => _model;
+        private QuestionOptionModel _model;
         
         public bool IsActive
         {
-            get => isActive;
+            get => _isActive;
             set
             {
-                if(value == isActive) return;
-                currentToggle?.Kill();
-                currentToggle = toggleSelection.DOScale(isActive? 0 : 1, 0.2f).SetEase(isActive ? Ease.InBack : Ease.OutExpo);
-                isActive = value;
+                if(value == _isActive) return;
+                _currentToggle?.Kill();
+                _currentToggle = toggleSelection.DOScale(_isActive? 0 : 1, 0.2f).SetEase(_isActive ? Ease.InBack : Ease.OutExpo);
+                _isActive = value;
             }
         }
-        private bool isActive;
+        private bool _isActive;
         
-        private Tweener currentUnderline;
-        private Tweener currentToggle;
+        private Tweener _currentUnderline;
+        private Tweener _currentToggle;
         
         public IEnumerator Setup(QuestionOptionModel optionModel)
         {
-            model = optionModel;
+            _model = optionModel;
             
             var canvasGroup = GetComponent<CanvasGroup>();
             canvasGroup.DOFade(0,0);
             
-            label.text = model.name;
+            label.text = _model.name;
             underline.DOFade(0, 0f);
             toggleSelection.DOScale(0, 0f);
             
@@ -52,14 +52,14 @@ namespace Components
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            currentUnderline?.Kill();
-            currentUnderline = underline.DOFade(1, 0.1f);
+            _currentUnderline?.Kill();
+            _currentUnderline = underline.DOFade(1, 0.1f);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            currentUnderline?.Kill();
-            currentUnderline = underline.DOFade(0, 0.4f);
+            _currentUnderline?.Kill();
+            _currentUnderline = underline.DOFade(0, 0.4f);
         }
 
         public void OnPointerDown(PointerEventData eventData)

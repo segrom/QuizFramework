@@ -21,58 +21,58 @@ namespace Components
 
         public bool IsInteractive
         {
-            get => isInteractive;
+            get => _isInteractive;
             set
             {
-                if(value == isInteractive) return;
-                currentMotion?.Kill();
-                currentMotion = transform.DOScaleX(value ? 1f : 0f, 0.5f).SetEase(value? Ease.OutBack : Ease.OutCirc);
-                isInteractive = value;
+                if(value == _isInteractive) return;
+                _currentMotion?.Kill();
+                _currentMotion = transform.DOScaleX(value ? 1f : 0f, 0.5f).SetEase(value? Ease.OutBack : Ease.OutCirc);
+                _isInteractive = value;
             }
         }
-        private bool isInteractive = true;
+        private bool _isInteractive = true;
         
-        private Tweener currentFirst;
-        private Tweener currentSecond;
-        private Tweener currentMotion;
+        private Tweener _currentFirst;
+        private Tweener _currentSecond;
+        private Tweener _currentMotion;
         
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if(!isInteractive) return;
-            currentMotion?.Kill();
-            currentMotion = transform.DOScaleX(1.05f, 0.5f).SetEase(Ease.OutCirc);
+            if(!_isInteractive) return;
+            _currentMotion?.Kill();
+            _currentMotion = transform.DOScaleX(1.05f, 0.5f).SetEase(Ease.OutCirc);
             
-            currentSecond?.Kill();
-            currentSecond = DOVirtual.Color(gradient.SecondColor, hoverSecondColor, 0.5f, value => gradient.SecondColor = value);
+            _currentSecond?.Kill();
+            _currentSecond = DOVirtual.Color(gradient.SecondColor, hoverSecondColor, 0.5f, value => gradient.SecondColor = value);
             
-            currentFirst?.Kill();
-            currentFirst = DOVirtual.Color(gradient.FirstColor, hoverFirstColor, 0.5f, value => gradient.FirstColor = value);
+            _currentFirst?.Kill();
+            _currentFirst = DOVirtual.Color(gradient.FirstColor, hoverFirstColor, 0.5f, value => gradient.FirstColor = value);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if(!isInteractive) return;
-            currentMotion?.Kill();
-            currentMotion = transform.DOScaleX(1f, 1f).SetEase(Ease.OutQuint);
+            if(!_isInteractive) return;
+            _currentMotion?.Kill();
+            _currentMotion = transform.DOScaleX(1f, 1f).SetEase(Ease.OutQuint);
             
-            currentSecond?.Kill();
-            currentSecond = DOVirtual.Color(gradient.SecondColor, defaultSecondColor, 1f, value => gradient.SecondColor = value);
+            _currentSecond?.Kill();
+            _currentSecond = DOVirtual.Color(gradient.SecondColor, defaultSecondColor, 1f, value => gradient.SecondColor = value);
             
-            currentFirst?.Kill();
-            currentFirst = DOVirtual.Color(gradient.FirstColor, defaultFirstColor, 1f, value => gradient.FirstColor = value);
+            _currentFirst?.Kill();
+            _currentFirst = DOVirtual.Color(gradient.FirstColor, defaultFirstColor, 1f, value => gradient.FirstColor = value);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if(!isInteractive) return;
-            currentMotion?.Kill();
-            currentMotion = transform.DOScaleX(0.9f, 0.1f).SetEase(Ease.OutExpo);
+            if(!_isInteractive) return;
+            _currentMotion?.Kill();
+            _currentMotion = transform.DOScaleX(0.9f, 0.1f).SetEase(Ease.OutExpo);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if(!isInteractive) return;
-            currentMotion?.Kill();
+            if(!_isInteractive) return;
+            _currentMotion?.Kill();
             transform.DOScaleX(1f, 0.3f).SetEase(Ease.OutBack).OnComplete(() => onClick?.Invoke() );
         }
     }

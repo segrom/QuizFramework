@@ -12,8 +12,8 @@ namespace Components.BottomBar.States
 
         public abstract IEnumerator Setup(TestModel test);
 
-        private CanvasGroup CanvasGroup => canvasGroup ??= GetComponent<CanvasGroup>();
-        private CanvasGroup canvasGroup;
+        private CanvasGroup CanvasGroup => _canvasGroup ??= GetComponent<CanvasGroup>();
+        private CanvasGroup _canvasGroup;
 
         public virtual IEnumerator Show()
         {

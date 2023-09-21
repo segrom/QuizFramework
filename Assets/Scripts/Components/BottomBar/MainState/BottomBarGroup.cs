@@ -30,15 +30,15 @@ namespace Components.BottomBar.MainState
         
         public bool IsActive { get; private set; }
 
-        private const float transitionDuration = 1f;
-        private float lastPreferredWidth;
-        private int lastProgressPercent;
-        private RectTransform rectTransform;
+        private const float TransitionDuration = 1f;
+        private float _lastPreferredWidth;
+        private int _lastProgressPercent;
+        private RectTransform _rectTransform;
 
         public IEnumerator Setup(QuestionGroupModel groupModel)
         {
-            rectTransform = GetComponent<RectTransform>();
-            progressTransform.preferredWidth = lastPreferredWidth = progressTransform.minWidth;
+            _rectTransform = GetComponent<RectTransform>();
+            progressTransform.preferredWidth = _lastPreferredWidth = progressTransform.minWidth;
             GroupModel = groupModel;
             titleActiveText.text = groupModel.Name;
             titleInactiveText.text = groupModel.Name;
@@ -88,14 +88,14 @@ namespace Components.BottomBar.MainState
 
                 var s1 = DOTween.Sequence();
                 s1.Join(DOVirtual.Float(maxSize,
-                        oldPreferredWidth, transitionDuration,
+                        oldPreferredWidth, TransitionDuration,
                         v => onInactiveLayoutElement.preferredWidth = v)
                     .SetEase(Ease.InOutCubic));
                 s1.Join(DOVirtual.Float(0,
-                    1, transitionDuration,
+                    1, TransitionDuration,
                     v => onInactiveCanvasGroup.alpha = v));
                 s1.Join(DOVirtual.Float(1,
-                    0, transitionDuration,
+                    0, TransitionDuration,
                     v => onActiveCanvasGroup.alpha = v));
                 yield return s1.WaitForCompletion();
                 
@@ -112,14 +112,14 @@ namespace Components.BottomBar.MainState
 
             var s = DOTween.Sequence();
             s.Join(DOVirtual.Float(preferredWidth,
-                    maxSize, transitionDuration,
+                    maxSize, TransitionDuration,
                     v => onInactiveLayoutElement.preferredWidth = v)
                 .SetEase(Ease.InOutCubic));
             s.Join(DOVirtual.Float(1,
-                0, transitionDuration,
+                0, TransitionDuration,
                 v => onInactiveCanvasGroup.alpha = v));
             s.Join(DOVirtual.Float(0,
-                1, transitionDuration,
+                1, TransitionDuration,
                 v => onActiveCanvasGroup.alpha = v));
             yield return s.WaitForCompletion();
 
@@ -149,25 +149,25 @@ namespace Components.BottomBar.MainState
         private IEnumerator MoveProgress(float progress)
         {
             var progressPercent = (int)(progress * 100f);
-            var preferredWidth = progress * rectTransform.rect.width +
+            var preferredWidth = progress * _rectTransform.rect.width +
                                  Mathf.Lerp(progressTransform.minWidth, 0, progress);
 
             var s = DOTween.Sequence();
             
-            s.Join(DOVirtual.Int(lastProgressPercent, 
-                    progressPercent, transitionDuration, 
+            s.Join(DOVirtual.Int(_lastProgressPercent, 
+                    progressPercent, TransitionDuration, 
                     value => progressText.text = $"{value}%")
                 .SetEase(Ease.InOutCubic));
             
-            s.Join(DOVirtual.Float(lastPreferredWidth, 
-                    preferredWidth, transitionDuration, 
+            s.Join(DOVirtual.Float(_lastPreferredWidth, 
+                    preferredWidth, TransitionDuration, 
                     value => progressTransform.preferredWidth = value).
                 SetEase(Ease.InOutCubic));
             
             yield return s.WaitForCompletion();
             
-            lastProgressPercent = progressPercent;
-            lastPreferredWidth = preferredWidth;
+            _lastProgressPercent = progressPercent;
+            _lastPreferredWidth = preferredWidth;
         }
     }
 }

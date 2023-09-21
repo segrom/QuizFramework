@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5d7c5eba-bfa4-f9b7-416d-017838f73f67}</ProjectGuid>
+    <ProjectGuid>{37234391-121e-28d9-78fc-b49e6c82d11e}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -113,6 +113,7 @@
      <Folder Include="Assets\YandexGame\Fonts" />
      <Folder Include="Assets\Scripts\Components" />
      <Folder Include="Assets\YandexGame\Prefabs\Leaderboards" />
+     <Folder Include="Assets\Questions\History" />
      <Folder Include="Assets\WebGLTemplates\PluginYG" />
      <Folder Include="Assets\YandexGame\ScriptsYG\CustomRBT" />
      <Folder Include="Assets\YandexGame\ScriptsYG\UnityToolbag-main\ConditionallyVisiblePropertyDrawer" />
@@ -144,6 +145,7 @@
      <Folder Include="Assets\AddressableAssetsData\WebGL" />
      <Folder Include="Assets\Scripts\Components\BottomBar\MainState" />
      <Folder Include="Assets\Scripts\Components\BottomBar\States" />
+     <Folder Include="Assets\Questions\Math" />
      <Folder Include="Assets\YandexGame\ScriptsYG\InfoYG" />
      <Folder Include="Assets\Questions" />
      <None Include="Assets\YandexGame\Fonts\LICENSE.txt" />
@@ -161,6 +163,7 @@
      <None Include="Assets\YandexGame\ScriptsYG\UnityToolbag-main\LICENSE.txt" />
      <Folder Include="Assets\AddressableAssetsData\AssetGroupTemplates" />
      <Folder Include="Assets\Scripts\Models\Results" />
+     <Folder Include="Assets\Questions\Russian" />
      <Reference Include="UnityEngine">
      <HintPath>F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -402,13 +405,13 @@
      <HintPath>F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections.LowLevel.ILSupport">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
      </Reference>
      <Reference Include="DOTween">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Assets\Plugins\DOTween_1_2_705\DOTween.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Assets\Plugins\DOTween_1_2_705\DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -777,196 +780,196 @@
      <HintPath>F:\Programs\Unity\Editors\2022.3.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ResourceManager">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Path.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ScriptableBuildPipeline">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
      <Reference Include="PPv2URPConverters">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="PsdPlugin">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Addressables.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Addressables">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
-     <HintPath>H:\UnityProjects\Марки авто текст [YG]\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+     <HintPath>H:\UnityProjects\QuizFramework\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{747d9801-bcd0-ed29-63af-01f91e571108}</Project>
+      <Project>{4a46a5d2-12ec-b2d0-ff32-4a6b00f66b27}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="LeTai.TranslucentImage.csproj">
-      <Project>{deef0639-563d-6224-3f5c-799facc0b8ab}</Project>
+      <Project>{833eba5a-ca29-988e-73e4-b23d017bd150}</Project>
       <Name>LeTai.TranslucentImage</Name>
     </ProjectReference>
     <ProjectReference Include="LeTai.TranslucentImage.UniversalRP.Editor.csproj">
-      <Project>{298413b8-74fc-a8dd-657d-82cdbc2a8c7a}</Project>
+      <Project>{3f32a52d-ed7d-1c09-9524-80dcda5e1440}</Project>
       <Name>LeTai.TranslucentImage.UniversalRP.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="LeTai.TranslucentImage.Editor.csproj">
-      <Project>{280a60ca-e3c1-5ab6-8bc1-45b7b65ecd8c}</Project>
+      <Project>{17bebcab-1591-e781-1b83-295f8a8a0e38}</Project>
       <Name>LeTai.TranslucentImage.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="LeTai.TranslucentImage.UniversalRP.csproj">
-      <Project>{edd806a8-fdca-e5cb-ae2b-08205166caf6}</Project>
+      <Project>{38456aa7-3475-6af9-21c6-bad9558e408f}</Project>
       <Name>LeTai.TranslucentImage.UniversalRP</Name>
     </ProjectReference>
   </ItemGroup>

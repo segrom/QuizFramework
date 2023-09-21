@@ -20,8 +20,8 @@ namespace Cards
         [SerializeField] private Transform optionsContainer;
         [SerializeField] private GradientButton nextButton, backButton;
 
-        private TestQuestionModel question;
-        private List<QuestionOption> options;
+        private TestQuestionModel _question;
+        private List<QuestionOption> _options;
 
         protected override void Awake()
         {
@@ -33,28 +33,28 @@ namespace Cards
 
         public IEnumerator Setup(TestQuestionModel questionModel, TestModel test)
         {
-            question = questionModel;
-            questionText.text = question.Question;
+            _question = questionModel;
+            questionText.text = _question.Question;
             questionNumberText.text = $"{test.CurrentQuestionIndex + 1}/{test.QuestionCount}";
             
-            nextButton.IsInteractive = question.SelectedOption is not null;
+            nextButton.IsInteractive = _question.SelectedOption is not null;
             
             var optionPrefabTask = AddressableManager.GetAsset<GameObject>(AddressableManager.QuestionOptionAsset);
             yield return new WaitUntil(() => optionPrefabTask.IsCompleted);
             var optionPrefab = optionPrefabTask.Result .GetComponent<QuestionOption>();
 
-            options = new List<QuestionOption>();
-            foreach (QuestionOptionModel optionModel in question.Options)
+            _options = new List<QuestionOption>();
+            foreach (QuestionOptionModel optionModel in _question.Options)
             {
                 var option = Instantiate(optionPrefab, optionsContainer);
                 
                 yield return option.Setup(optionModel);
                 
                 option.OnSelectionChange += OnOptionSelected;
-                options.Add(option);
+                _options.Add(option);
             }
             
-            var questionImageTask = AddressableManager.GetAsset<Texture2D>(question.ImagePath);
+            var questionImageTask = AddressableManager.GetAsset<Texture2D>(_question.ImagePath);
             yield return new WaitUntil(() => questionImageTask.IsCompleted);
             var imageTexture = questionImageTask.Result;
             
@@ -73,18 +73,18 @@ namespace Cards
 
         private void OnOptionSelected(QuestionOption changed)
         {
-            foreach (QuestionOption option in options)
+            foreach (QuestionOption option in _options)
             {
                 option.IsActive = option == changed && changed.IsActive;
             } 
             
-            question.SelectedOption = changed.IsActive ? changed.Model : null;
-            nextButton.IsInteractive = question.SelectedOption is not null;
+            _question.SelectedOption = changed.IsActive ? changed.Model : null;
+            nextButton.IsInteractive = _question.SelectedOption is not null;
         }
 
         private void OnDestroy()
         {
-            AddressableManager.ReleaseAsset(question.ImagePath);
+            AddressableManager.ReleaseAsset(_question.ImagePath);
         }
     }
 }

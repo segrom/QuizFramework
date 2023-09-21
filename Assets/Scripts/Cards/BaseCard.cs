@@ -14,12 +14,12 @@ namespace Cards
         public event Action<BaseCard> OnNext;
         public event Action<BaseCard> OnBack;
         
-        private CanvasGroup canvasGroup;
+        private CanvasGroup _canvasGroup;
 
         protected virtual void Awake()
         {
-            canvasGroup = GetComponent<CanvasGroup>();
-            canvasGroup.alpha = 0;
+            _canvasGroup = GetComponent<CanvasGroup>();
+            _canvasGroup.alpha = 0;
         }
 
         protected void OnNextInternal()
@@ -38,7 +38,7 @@ namespace Cards
             transform.DOScale(0.6f, 0);
             
             var s = DOTween.Sequence();
-            s.Join( canvasGroup.DOFade(1, 0.5f));
+            s.Join( _canvasGroup.DOFade(1, 0.5f));
             s.Join( transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack));
             yield return s.WaitForCompletion();
         }
@@ -46,7 +46,7 @@ namespace Cards
         public virtual IEnumerator Hide()
         {
             var s = DOTween.Sequence();
-            s.Join(canvasGroup.DOFade(0, 0.3f));
+            s.Join(_canvasGroup.DOFade(0, 0.3f));
             s.Join( transform.DOScale(0.5f, 0.8f).SetEase(Ease.InQuart));
             yield return s.WaitForCompletion();
         }

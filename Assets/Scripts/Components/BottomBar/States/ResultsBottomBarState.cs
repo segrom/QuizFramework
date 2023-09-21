@@ -10,26 +10,26 @@ namespace Components.BottomBar.States
     {
         public override BottomBarStateType StateType => BottomBarStateType.Results;
 
-        private BottomBarResultGroup resultGroupPrefab;
-        private List<BottomBarResultGroup> groups;
-        private TestModel test;
+        private BottomBarResultGroup _resultGroupPrefab;
+        private List<BottomBarResultGroup> _groups;
+        private TestModel _test;
         
         public override IEnumerator Setup(TestModel testModel)
         {
-            test = testModel;
+            _test = testModel;
             var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultGroup);
             yield return new WaitUntil(() => task.IsCompleted);
-            resultGroupPrefab = task.Result.GetComponent<BottomBarResultGroup>();
+            _resultGroupPrefab = task.Result.GetComponent<BottomBarResultGroup>();
         }
 
         public override IEnumerator Show()
         {
-            groups = new List<BottomBarResultGroup>();
-            foreach (QuestionGroupModel questionGroupModel in test.Groups)
+            _groups = new List<BottomBarResultGroup>();
+            foreach (QuestionGroupModel questionGroupModel in _test.Groups)
             {
-                var group = Instantiate(resultGroupPrefab, transform);
+                var group = Instantiate(_resultGroupPrefab, transform);
                 yield return group.Setup(questionGroupModel);
-                groups.Add(group);
+                _groups.Add(group);
             }
             yield return base.Show();
         }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e02c9531ca24f8b8cce5e50475b3a21, type: 3}
+  m_Name: Question 3
+  m_EditorClassIdentifier: 
+  imagePath: /Images/Math3
+  question: "\u041A\u043E\u0440\u0435\u043D\u044C \u0438\u0437 121 ?"
+  options:
+  - name: 10
+    isRight: 0
+  - name: 11
+    isRight: 1
+  - name: 12
+    isRight: 0
+  - name: 21
+    isRight: 0

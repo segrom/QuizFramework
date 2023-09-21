@@ -11,25 +11,25 @@ namespace Components.BottomBar.ResultState
         [SerializeField] private RectTransform resultsContainer;
         [SerializeField] private TMP_Text title;
 
-        private ResultGroupItem itemPrefab;
-        private List<ResultGroupItem> items;
+        private ResultGroupItem _itemPrefab;
+        private List<ResultGroupItem> _items;
         
         public IEnumerator Setup(QuestionGroupModel groupModel)
         {
             var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultGroupItem);
             yield return new WaitUntil(() => task.IsCompleted);
-            itemPrefab = task.Result.GetComponent<ResultGroupItem>();
+            _itemPrefab = task.Result.GetComponent<ResultGroupItem>();
 
             title.text = groupModel.Name;
             
-            items = new List<ResultGroupItem>();
+            _items = new List<ResultGroupItem>();
 
             int number = 1;
             foreach (TestQuestionModel modelQuestion in groupModel.Questions)
             {
-                var item = Instantiate(itemPrefab, resultsContainer);
+                var item = Instantiate(_itemPrefab, resultsContainer);
                 yield return item.Setup(modelQuestion, number++);
-                items.Add(item);
+                _items.Add(item);
             }
         }
     }

@@ -11,27 +11,27 @@ namespace Tools
         [SerializeField] private Color firstColor;
         [SerializeField] private Color secondColor;
 
-        private Material mat;
+        private Material _mat;
         
         public Color FirstColor
         {
-            set => image.materialForRendering.SetColor("_FirstColor", value);
-            get => image.materialForRendering.GetColor("_FirstColor");
+            set => _image.materialForRendering.SetColor("_FirstColor", value);
+            get => _image.materialForRendering.GetColor("_FirstColor");
         }
 
         public Color SecondColor
         {
-            set => image.materialForRendering.SetColor("_SecondColor", value);
-            get => image.materialForRendering.GetColor("_SecondColor");
+            set => _image.materialForRendering.SetColor("_SecondColor", value);
+            get => _image.materialForRendering.GetColor("_SecondColor");
         }
 
-        private Image image;
+        private Image _image;
 
         private void Awake()
         {
-            image = GetComponent<Image>();
-            mat = new Material(Shader.Find("Unlit/GradientShader"));
-            image.material = mat;
+            _image = GetComponent<Image>();
+            _mat = new Material(Shader.Find("Unlit/GradientShader"));
+            _image.material = _mat;
             FirstColor = firstColor;
             SecondColor = secondColor;
         }

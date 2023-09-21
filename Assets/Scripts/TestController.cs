@@ -21,9 +21,9 @@ public class TestController : MonoBehaviour
     [SerializeField] private Transform cardOrigin;
     [SerializeField] private BottomBar bottomBar;
 
-    private BaseCard currentCard;
-    private QuestionCard questionCardPrefab;
-    private TestModel currentTest;
+    private BaseCard _currentCard;
+    private QuestionCard _questionCardPrefab;
+    private TestModel _currentTest;
     
     private IEnumerator Start()
     {
@@ -32,10 +32,10 @@ public class TestController : MonoBehaviour
         title.transform.DOScale(0.8f,0);
         title.DOFade(0, 0);
         
-        currentTest = new TestModel(test);
-        title.text = currentTest.Title; 
+        _currentTest = new TestModel(test);
+        title.text = _currentTest.Title; 
         
-        yield return bottomBar.Setup(currentTest);
+        yield return bottomBar.Setup(_currentTest);
         var s = DOTween.Sequence();
         s.Join( title.DOFade(1, 2f));
         s.Join( title.transform.DOScale(1,2f).SetEase(Ease.OutCirc));
@@ -45,8 +45,8 @@ public class TestController : MonoBehaviour
         yield return AddressableManager.GetAssetCoroutine<GameObject>(AddressableManager.StartCardAsset, startCardPref =>
         {
             var startCard = Instantiate(startCardPref, cardOrigin).GetComponent<StartCard>();
-            currentCard = startCard;
-            startCard.Setup(currentTest);
+            _currentCard = startCard;
+            startCard.Setup(_currentTest);
             startCard.OnNext += (_) =>
             {
                 StartCoroutine(StartTest());
@@ -59,44 +59,44 @@ public class TestController : MonoBehaviour
     {
         var a = StartCoroutine(bottomBar.ChangeState(BottomBarStateType.Main));
         
-        yield return currentCard.Hide();
+        yield return _currentCard.Hide();
         AddressableManager.ReleaseAsset(AddressableManager.StartCardAsset);
         
         var task =  AddressableManager.GetAsset<GameObject>(AddressableManager.QuestionCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
-        questionCardPrefab = task.Result.GetComponent<QuestionCard>();
+        _questionCardPrefab = task.Result.GetComponent<QuestionCard>();
         
-        yield return GoQuestion(currentTest.AllQuestions.First());
+        yield return GoQuestion(_currentTest.AllQuestions.First());
         yield return a;
     }
 
     private IEnumerator NextQuestion()
     {
-        currentTest.CurrentQuestionIndex++;
+        _currentTest.CurrentQuestionIndex++;
 
-        if (currentTest.CurrentQuestionIndex >= currentTest.QuestionCount)
+        if (_currentTest.CurrentQuestionIndex >= _currentTest.QuestionCount)
         {
             yield return GoResults();
             yield break;
         }
         
-        yield return GoQuestion(currentTest.AllQuestions[currentTest.CurrentQuestionIndex]);
+        yield return GoQuestion(_currentTest.AllQuestions[_currentTest.CurrentQuestionIndex]);
     }
 
     private IEnumerator GoQuestion(TestQuestionModel question)
     {
-        currentCard.OnNext -= OnNextCard;
+        _currentCard.OnNext -= OnNextCard;
         
         var a = StartCoroutine(bottomBar.QuestionChanged(question));
-        yield return currentCard.Hide();
-        Destroy(currentCard);
+        yield return _currentCard.Hide();
+        Destroy(_currentCard);
         
-        var questionCard = Instantiate(questionCardPrefab, cardOrigin).GetComponent<QuestionCard>();
-        currentCard = questionCard;
+        var questionCard = Instantiate(_questionCardPrefab, cardOrigin).GetComponent<QuestionCard>();
+        _currentCard = questionCard;
 
-        currentCard.OnNext += OnNextCard;
+        _currentCard.OnNext += OnNextCard;
         
-        yield return questionCard.Setup(question, currentTest);
+        yield return questionCard.Setup(question, _currentTest);
         
         yield return questionCard.Show();
         yield return a;
@@ -106,27 +106,27 @@ public class TestController : MonoBehaviour
     {
         if (sender is QuestionCard)
         {
-            title.text = sender.Title ?? currentTest.Title;
+            title.text = sender.Title ?? _currentTest.Title;
             StartCoroutine(NextQuestion());
         }
     }
 
     private IEnumerator GoResults()
     {
-        currentCard.OnNext -= OnNextCard;
-        yield return currentCard.Hide();
-        Destroy(currentCard);
+        _currentCard.OnNext -= OnNextCard;
+        yield return _currentCard.Hide();
+        Destroy(_currentCard);
 
         AddressableManager.ReleaseAsset(AddressableManager.QuestionCardAsset);
         var task = AddressableManager.GetAsset<GameObject>(AddressableManager.ResultsCardAsset);
         yield return new WaitUntil(() => task.IsCompleted);
         
         var resultsCard = Instantiate(task.Result.GetComponent<ResultsCard>(), cardOrigin);
-        currentCard = resultsCard;
-        title.text = currentCard.Title ?? currentTest.Title;
+        _currentCard = resultsCard;
+        title.text = _currentCard.Title ?? _currentTest.Title;
 
-        var a = StartCoroutine(bottomBar.SetupResults(currentTest));
-        yield return resultsCard.Setup(currentTest);
+        var a = StartCoroutine(bottomBar.SetupResults(_currentTest));
+        yield return resultsCard.Setup(_currentTest);
         yield return resultsCard.Show();
         
         yield return a;

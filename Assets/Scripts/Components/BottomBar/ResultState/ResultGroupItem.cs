@@ -14,12 +14,12 @@ namespace Components.BottomBar.ResultState
         [SerializeField] private Image bg;
         [SerializeField] private Transform tooltipPos;
 
-        private TestQuestionModel question;
+        private TestQuestionModel _question;
         
         public IEnumerator Setup(TestQuestionModel modelQuestion, int number)
         {
             numberText.text = number.ToString();
-            question = modelQuestion;
+            _question = modelQuestion;
 
             bg.color = modelQuestion.IsRightSelected ? ResultTooltip.RightAnswerColor : ResultTooltip.WrongAnswerColor;
             
@@ -28,7 +28,7 @@ namespace Components.BottomBar.ResultState
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ResultTooltip.SetData(tooltipPos.position, question);
+            ResultTooltip.SetData(tooltipPos.position, _question);
         }
 
         public void OnPointerExit(PointerEventData eventData)
